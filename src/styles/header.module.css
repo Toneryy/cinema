@@ -1,0 +1,77 @@
+/* header.module.css */
+
+.headerLine {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  margin-top: 8px;
+}
+
+.logo img {
+  width: 187px;
+  height: 40px;
+}
+
+.nav ul {
+  margin: 12px 0;
+  list-style: none;
+  display: flex;
+  color: #878787;
+  gap: 32px;
+  padding: 4px 0;
+}
+
+.nav ul li {
+  font-weight: 500;
+  line-height: 24px;
+  font-size: 16px;
+  letter-spacing: -2%;
+  text-align: left;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.buttonContainer button {
+  height: 56px;
+  color: #fff;
+  line-height: 24px;
+  font-size: 16px;
+  padding: 16px 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.buttonContainer .searchBtn {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  border: 2px solid #383838; /* Обводка для кнопки */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Выравнивание иконки внутри кнопки */
+  background: none;
+}
+
+.buttonContainer .searchBtn img {
+  width: 24px;
+  height: 24px;
+}
+
+
+.buttonContainer .subscribeBtn {
+  background-color: #ff0000;
+  border-radius: 6px;
+}
+
+.buttonContainer .loginBtn {
+  border: 2px solid #F14141; /* Увеличение толщины обводки */
+  border-radius: 6px;
+  background: none;
+}
