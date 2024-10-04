@@ -1,2 +1,72 @@
 /* intro.module.css */
 
+.introSection {
+    margin: 112px 0 120px;
+    display: flex;
+    gap: 65px;
+}
+
+.description {
+}
+
+h1 {
+    color: #fff;
+    font-weight: 600;
+    font-size: 48px;
+    letter-spacing: -2%;
+    line-height: 56px;
+    text-align: left;
+}
+
+.photoContainer img {
+    
+}
+
+.subtitle {
+    margin: 24px 0;
+    color: #878787;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -2%;
+    text-align: left;
+}
+
+.buttonContainer {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.buttonContainer button {
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buttonContainer button:hover {
+    background-color: #777;
+}
+
+
+.watchTrailer {
+    width: 179px;
+    height: 56px;
+    border-radius: 6px;
+    background: #F14141;
+    padding: 16px 24px;
+    border: none;
+}
+
+.moreInfo {
+    width: 119px;
+    height: 56px;
+    border-radius: 6px;
+    border: 1px #F14141 solid;
+    padding: 16px;
+    background: none;
+}

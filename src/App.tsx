@@ -2,13 +2,13 @@ import 'normalize.css';
 import s from './styles/App.module.css';
 
 import Header from './Components/Header';
-import Intro from './Components/Intro';
+import Main from './Components/Main';
 
 function App() {
   return (
     <div className={s.wrapper}>
       <Header />
-      <Intro />
+      <Main />
     </div>
   );
 }

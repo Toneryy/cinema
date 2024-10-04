@@ -1,0 +1,100 @@
+.newsSection {
+    margin: 120px 0;
+}
+
+.newsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 80px; /* Отступ между большими и маленькими новостями */
+}
+
+.mainNews {
+    display: flex;
+    gap: 56px; /* Отступ между изображением и текстом */
+}
+
+.mainImage {
+    width: 592px; /* Ширина большого изображения */
+    height: 417px; /* Высота большого изображения */
+    object-fit: cover; /* Обрезка изображения для заполнения области */
+}
+
+.mainText {
+    flex: 1; /* Позволяет тексту занимать оставшуюся ширину */
+    color: #fff; /* Цвет текста */
+    margin: 71.5px 0;
+}
+
+.mainText h2 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 40px;
+}
+
+.mainText p {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    text-align: left;
+    color: #878787; /* Цвет текста для абзаца */
+    margin: 24px 0 32px 0; /* Отступ сверху 24px, снизу 32px */
+}
+
+.readMoreButton {
+    background-color: #242323; /* Цвет кнопки */
+    color: white; /* Цвет текста кнопки */
+    width: 161px;
+    height: 56px;
+    padding: 16px 24px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: left;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+.otherNews {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Три колонки для маленьких изображений */
+    gap: 56px; /* Расстояние между маленькими новостями */
+}
+
+.newsItem img {
+    width: 376px; /* Ширина маленького изображения */
+    height: 358px; /* Высота маленького изображения */
+    object-fit: cover; /* Обрезка изображения для заполнения области */
+}
+
+.newsItem p {
+    color: #fff; /* Цвет текста для абзаца */
+    font-size: 26px;
+    line-height: 32px;
+    text-align: left;
+    margin-top: 32px;
+}
+
+/* Адаптивная верстка */
+@media (max-width: 1024px) {
+    .mainNews {
+        flex-direction: column; /* Вертикальная ориентация на меньших экранах */
+        align-items: center; /* Центрирование по горизонтали */
+    }
+
+    .mainImage {
+        width: 100%; /* Изображение заполняет ширину экрана */
+        height: auto; /* Автоматическая высота */
+    }
+
+    .otherNews {
+        grid-template-columns: repeat(2, 1fr); /* Две колонки для маленьких изображений */
+    }
+}
+
+@media (max-width: 768px) {
+    .otherNews {
+        grid-template-columns: 1fr; /* Одна колонка для маленьких изображений */
+    }
+}
