@@ -1,15 +1,26 @@
 .FAQ {
-    margin-top: 120px;
+    display: flex;
+    justify-content: space-between;
+    gap: 56px;
+    align-items: flex-start; /* чтобы блоки начинались с одной линии */
+    height: 494px;
+    margin: 120px 0;
+}
+
+.container {
     display: flex;
     gap: 56px;
 }
 
-.container {
-    margin: 120px 0;
-}
-
 .leftBox {
+    color: #fff;
     width: 498px;
+    height: 494px; /* зафиксированная высота */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* переместить содержимое в начало */
+    position: relative;
+    overflow: hidden; /* скрыть элементы, выходящие за пределы */
 }
 
 .title {
@@ -17,23 +28,191 @@
     font-size: 48px;
     line-height: 56px;
     text-align: left;
+    margin: 0; /* убираем любые отступы */
 }
 
 .description {
     margin-top: 24px;
+    margin-bottom: 32px; /* расстояние до изображения */
     font-weight: 500;
     font-size: 18px;
     line-height: 26px;
-    text-align: left;
     color: #878787;
+    text-align: left;
 }
 
 .haveQuestion {
-    margin-top: 32px;
-    height: 248px;
-    /* background: url('../data/mainPage/'); */
+    margin-top: 32px; /* отступ между описанием и изображением */
+    border-radius: 6px;
+    padding: 69px 94.5px;
+    height: 248px; /* фиксированная высота для блока */
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; /* для абсолютного позиционирования дочерних элементов */
+}
+
+.image {
+    position: absolute; /* абсолютное позиционирование изображения */
+    bottom: 0;
+    left: 0;
+    width: 100%; /* ширина 100% контейнера */
+    height: 248px; /* установите нужную высоту для изображения */
+    object-fit: cover; /* обрезка изображения */
+    z-index: 1; /* чтобы изображение было под текстом */
+}
+
+.questionTitle {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    position: relative; /* необходимо для корректного позиционирования текста */
+    margin: 0; /* убираем margin */
+    z-index: 2; /* чтобы текст был поверх изображения */
+}
+
+.questionDescription {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 500;
+    color: #878787;
+    text-align: center;
+    position: relative; /* необходимо для корректного позиционирования текста */
+    margin: 0; /* убираем margin */
+    z-index: 2; /* чтобы текст был поверх изображения */
 }
 
 .rightBox {
-    background: #bb7e7e;
+    width: 686px;
+    height: 494px; /* зафиксированная высота */
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* убираем отступы между элементами */
+    overflow-y: auto; /* Добавляем прокрутку, если элементы выходят за пределы высоты */
+    border-radius: 8px;
+}
+
+.faqItem {
+    background-color: #1c1c1e;
+    color: white;
+    height: 80px;
+    padding: 24px 72px 24px 24px;
+    cursor: pointer;
+    margin: 0; /* убираем margin для всех элементов */
+}
+
+.faqItem:not(:last-child) {
+    border-bottom: 1px solid #333; /* цвет и стиль сепаратора */
+}
+
+.faqQuestion {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.icon {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.faqAnswer {
+    margin-top: 8px; /* уменьшаем отступ для ответа */
+    font-size: 16px;
+    color: #878787;
+}
+
+/* Адаптивная верстка для планшетов и мобильных устройств */
+@media (max-width: 1024px) {
+    .FAQ {
+        flex-direction: column;
+        gap: 40px;
+        height: auto; /* убираем фиксированную высоту */
+        margin: 80px 0;
+    }
+
+    .leftBox, .rightBox {
+        width: 100%;
+        height: auto; /* убираем фиксированную высоту */
+    }
+
+    .title {
+        font-size: 40px;
+        line-height: 48px;
+    }
+
+    .description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .haveQuestion {
+        padding: 40px 24px; /* уменьшаем отступы */
+        height: auto; /* позволяем блоку растягиваться по высоте */
+    }
+
+    .questionTitle {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .questionDescription {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .faqAnswer {
+        font-size: 10px;
+    }
+}
+
+/* Адаптивная верстка для мобильных устройств */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .title {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .description {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .haveQuestion {
+        padding: 32px 16px;
+        height: auto; /* позволяем блоку растягиваться */
+    }
+
+    .questionTitle {
+        font-size: 18px;
+    }
+
+    .questionDescription {
+        font-size: 14px;
+    }
+
+    .rightBox {
+        height: auto; /* убираем фиксированную высоту */
+    }
+
+    .faqItem {
+        padding: 16px 16px 16px 16px; /* уменьшаем padding */
+    }
+
+    .faqQuestion {
+        font-size: 16px;
+    }
+
+    .faqAnswer {
+        font-size: 14px;
+    }
 }
