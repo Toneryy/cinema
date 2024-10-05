@@ -1,0 +1,61 @@
+.heroSection {
+    width: 100%;
+    background-image: url('../data/mainPage/bg.png');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .heroTitle {
+    margin: auto;
+    max-width: 900px;
+    color: white;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 56px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  
+  .heroSubtitle {
+    margin: auto;
+    max-width: 900px;
+    color: #878787;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  
+  .subscribeForm {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .emailInput {
+    padding: 12px;
+    font-size: 16px;
+    width: 300px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+  
+  .subscribeButton {
+    padding: 12px 24px;
+    background-color: #e50914;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-left: 8px;
+    border-radius: 4px;
+  }
+  
+  .subscribeButton:hover {
+    background-color: #d40812;
+  }
+  

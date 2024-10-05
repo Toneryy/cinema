@@ -14,6 +14,7 @@
 }
 
 .movieContainer {
+    margin-top: 56px;
     display: flex;
     flex-direction: column;
     gap: 40px; /* Отступы между группами фильмов */

@@ -5,6 +5,7 @@ import Intro from "./Intro";
 import Movies from "./Movies";
 import LatestNews from "./LatestNews";
 import FAQ from "./FAQ";
+import Hero from "./Hero";
 
 const Main: React.FC = () => {
     return (
@@ -13,6 +14,7 @@ const Main: React.FC = () => {
             <Movies />
             <LatestNews />
             <FAQ />
+            <Hero />
         </main>
     )
 }
