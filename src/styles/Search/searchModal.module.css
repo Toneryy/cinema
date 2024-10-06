@@ -1,0 +1,83 @@
+.searchModal {
+    display: none; /* По умолчанию скрыто */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000; /* Для того, чтобы окно было поверх других элементов */
+}
+  
+.searchModal.active {
+    display: flex; /* Показываем модальное окно */
+    opacity: 1;
+}
+  
+.searchContent {
+    background-color: white;
+    padding: 30px; /* Увеличим отступы */
+    width: 90%; /* Изменим ширину */
+    max-width: 500px; /* Установим максимальную ширину */
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Добавим тень */
+    position: relative; /* Для кнопки закрытия */
+}
+  
+.closeButton {
+    position: absolute; /* Позиционируем кнопку */
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: transparent; /* Прозрачный фон */
+    cursor: pointer; /* Указатель курсора */
+    font-size: 24px; /* Увеличим размер шрифта */
+    color: #333; /* Цвет кнопки */
+}
+  
+.searchInput {
+    width: 100%; /* Ширина 100% */
+    padding: 12px 15px; /* Добавим внутренние отступы сверху и снизу */
+    margin: 15px 0;
+    border: 1px solid #ddd; /* Рамка */
+    border-radius: 5px; /* Закругление углов */
+    font-size: 16px; /* Размер шрифта */
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Добавим легкую тень */
+    box-sizing: border-box; /* Включаем отступы и границы в ширину */
+}
+
+/* Стили для адаптивности */
+@media (max-width: 500px) {
+    .searchContent {
+        padding: 20px; /* Уменьшим отступы на меньших экранах */
+    }
+
+    .searchInput {
+        padding: 10px 12px; /* Уменьшим внутренние отступы для input */
+    }
+
+    .searchButton {
+        padding: 8px 12px; /* Уменьшим отступы для кнопки поиска */
+        font-size: 14px; /* Уменьшим размер шрифта для кнопки */
+    }
+}
+  
+.searchButton {
+    padding: 10px 15px;
+    background-color: #ff0000; /* Основной цвет кнопки */
+    color: white; /* Цвет текста */
+    border: none;
+    border-radius: 5px; /* Закругление углов */
+    cursor: pointer; /* Указатель курсора */
+    font-size: 16px; /* Размер шрифта */
+    transition: background-color 0.3s; /* Плавный переход */
+}
+  
+.searchButton:hover {
+    background-color: #cc0000; /* Темный цвет при наведении */
+}

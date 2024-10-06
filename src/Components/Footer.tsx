@@ -1,5 +1,5 @@
 import React from 'react';
-import s from '../styles/footer.module.css';
+import s from '../styles/Footer/footer.module.css';
 
 const Footer: React.FC = () => {
   return (
@@ -15,33 +15,33 @@ const Footer: React.FC = () => {
 
         <div className={s.links}>
           <ul>
-            <li>Home</li>
-            <li>Movies</li>
-            <li>Tv Shows</li>
-            <li>Reedem</li>
+            <li><a href="/#">Home</a></li> {/* Добавил действительный href */}
+            <li><a href="/movies">Movies</a></li>
+            <li><a href="/tv-shows">Tv Shows</a></li>
+            <li><a href="/reedem">Reedem</a></li>
           </ul>
 
           <ul>
-            <li>About</li>
-            <li>Career</li>
-            <li>Investors</li>
-            <li>Contact Us</li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/career">Career</a></li>
+            <li><a href="/investors">Investors</a></li>
+            <li><a href="/contact">Contact Us</a></li>
           </ul>
 
           <ul>
-            <li>FAQ</li>
-            <li>Help Center</li>
-            <li>Media Center</li>
-            <li>Cookie Preferences</li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/help-center">Help Center</a></li>
+            <li><a href="/media-center">Media Center</a></li>
+            <li><a href="/cookie-preferences">Cookie Preferences</a></li>
           </ul>
         </div>
 
         <div className={s.socials}>
           <h4>Stay up to date</h4>
           <div className={s.socialIcons}>
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">TikTok</a>
+            <a href="https://facebook.com" target="_blank" rel="noreferrer">Facebook</a> {/* Указал действительные ссылки */}
+            <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="https://tiktok.com" target="_blank" rel="noreferrer">TikTok</a>
           </div>
         </div>
       </div>
@@ -49,8 +49,8 @@ const Footer: React.FC = () => {
       <div className={s.footerBottom}>
         <p>© 2023 Mostream all rights reserved</p>
         <div className={s.footerLinks}>
-          <a href="#">Terms and condition</a>
-          <a href="#">Privacy Policy</a>
+          <a href="/terms">Terms and conditions</a> {/* Указал действительные ссылки */}
+          <a href="/privacy">Privacy Policy</a>
         </div>
       </div>
     </footer>

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import s from '../styles/hero.module.css';
 
-const Hero: React.FC = () => {
+const Hero = forwardRef<HTMLElement>((props, ref) => {
   return (
-    <section className={s.heroSection}>
+    <section ref={ref} className={s.heroSection}>
       <div className="wrapper">
         <h1 className={s.heroTitle}>Unlock Your Cinematic Experience! Ready to Dive Into Movie Magic</h1>
         <p className={s.heroSubtitle}>
@@ -16,6 +16,6 @@ const Hero: React.FC = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Hero;

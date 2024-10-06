@@ -1,0 +1,125 @@
+/* Общие стили */
+.headerLine {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Центрирование по вертикали */
+}
+
+.logo {
+  margin-top: 8px;
+}
+
+.logo img {
+  width: 187px;
+  height: auto; /* Автоматическая высота для сохранения пропорций */
+}
+
+.nav ul {
+  margin: 12px 0;
+  list-style: none;
+  display: flex;
+  color: #878787;
+  gap: 40px; /* Увеличение отступа между пунктами меню */
+  padding: 0; /* Убираем отступы */
+}
+
+.nav ul li {
+  font-weight: 500;
+  line-height: 24px;
+  font-size: 18px; /* Увеличение размера шрифта для лучшей читаемости */
+  letter-spacing: -1%; /* Изменение межбуквенного интервала */
+  text-align: left;
+  transition: color 0.3s ease; /* Плавный переход цвета */
+}
+
+.nav ul li:hover {
+  color: #ff0000; /* Изменение цвета при наведении */
+}
+
+/* Анимации для кнопок */
+.buttonContainer {
+  display: flex;
+  gap: 16px; /* Увеличение отступа между кнопками */
+}
+
+.buttonContainer button {
+  height: 56px;
+  color: #fff;
+  line-height: 24px;
+  font-size: 16px;
+  padding: 0 24px; /* Удаляем верхний и нижний отступ, добавляем только по бокам */
+  border: none;
+  border-radius: 8px; /* Закругление углов */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.buttonContainer .subscribeBtn {
+  background-color: #ff0000;
+}
+
+.buttonContainer .loginBtn {
+  border: 2px solid #F14141;
+  background: none;
+}
+
+.buttonContainer button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.buttonContainer .searchBtn {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  border: 2px solid #383838;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+/* Медиа-запросы для адаптивного дизайна */
+@media (max-width: 1240px) {
+  .headerLine {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav ul {
+    gap: 24px; /* Уменьшение отступов между пунктами меню */
+  }
+
+  .nav ul li {
+    font-size: 16px; /* Уменьшение размера шрифта */
+  }
+
+  .buttonContainer {
+    flex-direction: column; /* Вертикальное расположение кнопок */
+    align-items: center; /* Центрирование кнопок */
+  }
+}
+
+@media (max-width: 768px) {
+  .nav ul {
+    flex-direction: column; /* Вертикальное расположение меню */
+    align-items: center; /* Центрирование пунктов меню */
+  }
+
+  .buttonContainer {
+    flex-direction: column; /* Вертикальное расположение кнопок */
+  }
+}
+
+@media (max-width: 480px) {
+  .buttonContainer button {
+    width: 100%; /* Кнопки занимают всю ширину */
+    font-size: 14px; /* Уменьшение размера шрифта кнопок */
+  }
+
+  .nav ul li {
+    font-size: 12px; /* Уменьшение размера шрифта для мобильных устройств */
+  }
+}
