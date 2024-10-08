@@ -18,7 +18,7 @@ const Main: React.FC<MainProps> = ({ heroRef }) => {
       <Movies />
       <LatestNews />
       <FAQ />
-      <Hero ref={heroRef} /> {/* передаем ref */}
+      <Hero ref={heroRef} /> 
     </main>
   );
 }

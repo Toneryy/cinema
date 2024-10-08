@@ -1,3 +1,5 @@
+/* app.module.css */
+
 body {
   font-family: "Inter", sans-serif;
   background: rgb(16, 16, 16);
@@ -7,7 +9,7 @@ body {
 .wrapper {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 24px; /* Отступы равные для всех сторон */
 }
 
 .main {
@@ -16,17 +18,14 @@ body {
 
 @media (max-width: 1240px) {
   .wrapper {
-    width: 100%;
-    padding: 0 16px;
-  }
-
-  .main {
-    margin-top: 16px;
+    max-width: 90%;
+    padding: 0 24px;
   }
 }
 
 @media (max-width: 1024px) {
   .wrapper {
+    max-width: 90%;
     padding: 0 12px;
   }
 }

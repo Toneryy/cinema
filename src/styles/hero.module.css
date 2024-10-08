@@ -1,3 +1,5 @@
+/* hero.module.css */
+
 .heroSection {
     width: 100%;
     background-image: url('../data/mainPage/bg.png');
@@ -58,4 +60,101 @@
   .subscribeButton:hover {
     background-color: #d40812;
   }
-  
+
+  /* hero.module.css */
+
+/* Адаптивная верстка */
+@media (max-width: 768px) {
+  .heroTitle {
+      font-size: 36px;
+      line-height: 44px;
+  }
+
+  .heroSubtitle {
+      font-size: 20px;
+      line-height: 28px;
+  }
+
+  .emailInput {
+      width: 100%; /* Полная ширина для мобильных */
+      margin-bottom: 16px; /* Отступ снизу */
+  }
+
+  .subscribeForm {
+      flex-direction: column; /* Вертикальная ориентация для мобильных */
+      align-items: center; /* Центрирование элементов */
+  }
+}
+
+/* hero.module.css */
+
+.heroSection {
+  width: 100%;
+  background-image: url('../data/mainPage/bg.png');
+  background-size: cover;
+  background-position: center;
+  padding: 80px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.heroTitle {
+  margin: auto;
+  max-width: 900px;
+  color: white;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 56px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.heroSubtitle {
+  margin: auto;
+  max-width: 900px;
+  color: #878787;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.subscribeForm {
+  display: flex;
+  justify-content: center;
+  gap: 16px; /* Отступ между элементами формы */
+}
+
+.subscribeInput {
+  width: 300px;
+  padding: 12px; /* Отступы внутри поля */
+  border-radius: 4px; /* Закругление углов поля */
+  border: 1px solid #ccc; /* Цвет рамки */
+}
+
+.subscribeButton {
+  padding: 12px 24px; /* Отступы внутри кнопки */
+  border-radius: 4px; /* Закругление углов кнопки */
+  background-color: #e50914; /* Цвет фона кнопки */
+  color: white; /* Цвет текста кнопки */
+  border: none; /* Убираем рамку */
+  cursor: pointer; /* Указатель при наведении */
+}
+
+/* Адаптивная верстка */
+@media (max-width: 768px) {
+  .heroTitle {
+      font-size: 32px; /* Уменьшаем размер заголовка */
+      line-height: 40px; /* Уменьшаем высоту строки */
+  }
+
+  .heroSubtitle {
+      font-size: 20px; /* Уменьшаем размер подзаголовка */
+      line-height: 28px; /* Уменьшаем высоту строки */
+  }
+
+  .subscribeInput {
+      width: 100%; /* Поле формы заполняет всю ширину */
+  }
+}

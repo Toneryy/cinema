@@ -1,3 +1,5 @@
+/* FAQ.module.css */
+
 .FAQ {
     display: flex;
     justify-content: space-between;
@@ -214,5 +216,24 @@
 
     .faqAnswer {
         font-size: 14px;
+    }
+}
+
+@media (min-width: 1240px) {
+    .FAQ {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 1024px) {
+    .FAQ {
+        flex-direction: column; /* На планшетах компоненты располагаются в одну колонку */
+    }
+}
+
+@media (max-width: 768px) {
+    .FAQ {
+        flex-direction: column;
     }
 }

@@ -1,3 +1,5 @@
+/* movies.module.css */
+
 .movieSection {
     margin: 120px 0;
 }
@@ -10,54 +12,44 @@
     line-height: 56px;
     text-align: center;
     margin: 0 auto;
-    width: 788px;
+    max-width: 788px;
 }
 
 .movieContainer {
     margin-top: 56px;
     display: flex;
     flex-direction: column;
-    gap: 40px; /* Отступы между группами фильмов */
+    gap: 40px;
 }
 
 .movieContainer img {
     border-radius: 10px;
 }
 
-/* Сетка для больших элементов */
-.movieContainerLarge {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Два больших элемента в строку */
-    gap: 56px;
-    justify-items: center;
-}
-
-/* Сетка для маленьких элементов */
+.movieContainerLarge,
 .movieContainerSmall {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Три маленьких элемента в строку */
     gap: 56px;
     justify-items: center;
 }
 
-.movieItemLarge {
-    width: 592px;
-    text-align: center;
+.movieContainerLarge {
+    grid-template-columns: repeat(2, 1fr);
 }
 
+.movieContainerSmall {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.movieItemLarge,
 .movieItemSmall {
-    width: 376px;
     text-align: center;
+    width: 100%;
 }
 
-.movieImageLarge {
-    width: 100%; /* Изображение занимает всю ширину контейнера */
-    height: 485px;
-    object-fit: cover;
-}
-
+.movieImageLarge,
 .movieImageSmall {
-    width: 100%; /* Изображение занимает всю ширину контейнера */
+    width: 100%;
     height: 485px;
     object-fit: cover;
 }
@@ -86,12 +78,12 @@
     justify-content: center;
 }
 
-.trailerButton, .moreInfoButton {
+.trailerButton,
+.moreInfoButton {
     font-size: 16px;
     font-weight: 600;
     line-height: 24px;
     color: #fff;
-    background-color: #e50914;
     height: 56px;
     border-radius: 6px;
     border: none;
@@ -101,6 +93,7 @@
 
 .trailerButton {
     width: 179px;
+    background-color: #e50914;
 }
 
 .moreInfoButton {
@@ -109,27 +102,29 @@
     border: 1px #F14141 solid;
 }
 
-.trailerButton:hover, .moreInfoButton:hover {
+.trailerButton:hover,
+.moreInfoButton:hover {
     background-color: #777;
 }
 
 /* Адаптивная верстка */
+@media (max-width: 1240px) {
+    .movieContainerSmall {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 1024px) {
+    .movieContainer {
+        gap: 20px;
+    }
+
     .movieContainerLarge {
-        grid-template-columns: 1fr; /* На узких экранах большие элементы занимают всю ширину */
+        grid-template-columns: 1fr;
     }
 
     .movieContainerSmall {
-        grid-template-columns: 1fr; /* Маленькие элементы также занимают всю ширину */
-    }
-
-    .movieItemLarge, .movieItemSmall {
-        width: 100%; /* Элементы занимают всю ширину экрана */
-    }
-
-    .movieImageLarge, .movieImageSmall {
-        width: 100%; /* Изображения растягиваются по ширине контейнера */
-        height: auto; /* Высота автоматически подстраивается под ширину */
+        grid-template-columns: 1fr;
     }
 }
 
@@ -137,6 +132,15 @@
     .title {
         font-size: 32px;
         line-height: 40px;
+    }
+
+    .movieContainerSmall,
+    .movieContainerLarge {
+        grid-template-columns: 1fr;
+    }
+
+    .movieItem {
+        flex-basis: 100%; /* Одна колонка на мобильных */
     }
 }
 
@@ -146,12 +150,33 @@
         line-height: 32px;
     }
 
-    .movieItemLarge, .movieItemSmall {
-        margin-bottom: 40px;
-    }
-
-    .trailerButton, .moreInfoButton {
+    .trailerButton,
+    .moreInfoButton {
         padding: 8px 16px;
         font-size: 12px;
+    }
+}
+
+/* Добавляем адаптивность для нижних блоков */
+.otherMovies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.movieItem {
+    flex-basis: calc(33.33% - 20px); /* Используем flex вместо фиксированной ширины */
+    margin-bottom: 20px; /* Отступы между блоками */
+}
+
+@media (max-width: 1240px) {
+    .movieItem {
+        flex-basis: calc(50% - 20px); /* Переход на 2 колонки на меньших экранах */
+    }
+}
+
+@media (max-width: 768px) {
+    .movieItem {
+        flex-basis: 100%; /* Одна колонка на мобильных */
     }
 }

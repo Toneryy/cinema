@@ -1,4 +1,4 @@
-/* intro.module.css */
+/* intro.module.css. Этот файл уже с адаптивом, но могут быть и ошибки */
 
 .introSection {
     margin: 112px 0 120px;
@@ -9,17 +9,23 @@
 .description {
 }
 
-h1 {
+.title {
     color: #fff;
     font-weight: 600;
     font-size: 48px;
     letter-spacing: -2%;
     line-height: 56px;
     text-align: left;
+    cursor: pointer;
+    transition: color 0.15s ease;
 }
 
-.photoContainer img {
-    
+.title:hover {
+    color: #fc6565;
+}
+
+.introSection {
+    margin-left: auto;
 }
 
 .subtitle {
@@ -69,4 +75,102 @@ h1 {
     border: 1px #F14141 solid;
     padding: 16px;
     background: none;
+}
+
+.sliderControls {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+  
+.sliderControls button {
+    background: none;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+    color: #ff0000;
+}
+  
+/* Адаптивность */
+@media (max-width: 1240px) {
+    .title {
+        font-size: 36px; /* Уменьшаем размер шрифта заголовка */
+        line-height: 42px;
+    }
+
+    .subtitle {
+        font-size: 16px; /* Уменьшаем размер шрифта подзаголовка */
+        line-height: 24px;
+    }
+
+    .photoContainer img {
+        width: 432px;
+        height: 340px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .title {
+        font-size: 30px; /* Уменьшаем размер шрифта заголовка */
+        line-height: 36px;
+    }
+
+    .subtitle {
+        font-size: 14px; /* Уменьшаем размер шрифта подзаголовка */
+        line-height: 22px;
+    }
+
+    .photoContainer img {
+        width: 372px;
+        height: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .introSection {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .watchTrailer, .moreInfo {
+        width: 100%;
+        height: 15%;
+    }
+  
+    .description {
+      max-width: 100%;
+    }
+  
+    .photoContainer {
+      display: none; /* Убираем изображение */
+    }
+  
+    .buttonContainer {
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      align-items: center;
+    }
+
+    .prev {
+    margin-left: 0;
+    }
+
+    .next {
+        margin-left: auto;
+    }
+}
+  
+@media (max-width: 480px) {
+    .description h1 {
+      font-size: 18px;
+    }
+  
+    .description p {
+      font-size: 14px;
+    }
+  
+    .buttonContainer button {
+      width: 100%;
+    }
 }

@@ -1,3 +1,5 @@
+/* latest */
+
 .newsSection {
     margin: 120px 0;
 }
@@ -77,24 +79,3 @@
 }
 
 /* Адаптивная верстка */
-@media (max-width: 1024px) {
-    .mainNews {
-        flex-direction: column; /* Вертикальная ориентация на меньших экранах */
-        align-items: center; /* Центрирование по горизонтали */
-    }
-
-    .mainImage {
-        width: 100%; /* Изображение заполняет ширину экрана */
-        height: auto; /* Автоматическая высота */
-    }
-
-    .otherNews {
-        grid-template-columns: repeat(2, 1fr); /* Две колонки для маленьких изображений */
-    }
-}
-
-@media (max-width: 768px) {
-    .otherNews {
-        grid-template-columns: 1fr; /* Одна колонка для маленьких изображений */
-    }
-}
