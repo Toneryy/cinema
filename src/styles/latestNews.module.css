@@ -4,6 +4,15 @@
     margin: 120px 0;
 }
 
+.title {
+    color: #fff;
+    font-weight: 600;
+    font-size: 48px;
+    letter-spacing: -2%;
+    line-height: 56px;
+    text-align: center;
+}
+
 .newsContainer {
     display: flex;
     flex-direction: column;
@@ -61,13 +70,17 @@
 .otherNews {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Три колонки для маленьких изображений */
-    gap: 56px; /* Расстояние между маленькими новостями */
+    gap: auto; /* Расстояние между маленькими новостями */
 }
 
 .newsItem img {
-    width: 376px; /* Ширина маленького изображения */
+    width: 100%; /* Ширина маленького изображения */
     height: 358px; /* Высота маленького изображения */
     object-fit: cover; /* Обрезка изображения для заполнения области */
+}
+
+.newsItem {
+    width: 376px;
 }
 
 .newsItem p {
@@ -79,3 +92,92 @@
 }
 
 /* Адаптивная верстка */
+
+@media (max-width: 1240px) {
+    .mainImage {
+        width: 492px; /* Уменьшенная ширина */
+        height: 350px; /* Уменьшенная высота */
+    }
+
+    .mainText {
+        margin: 40px 0; /* Равные отступы сверху и снизу */
+    }
+
+    .otherNews {
+        grid-template-columns: repeat(3, 1fr); /* Две колонки для маленьких изображений на этом разрешении */
+        gap: auto;
+    }
+
+    .newsItem img {
+        height: 270px; /* Одинаковая высота для всех изображений */
+    }
+
+    .newsItem {
+        width: 270px;
+    }
+
+    .newsItem p {
+        font-size: 22px;
+    }
+
+    .otherNews {
+        gap: auto;
+    }
+}
+
+@media (max-width: 1024px) {
+    .mainImage {
+        width: 400px; /* Еще более уменьшенная ширина */
+        height: 460px; /* Еще более уменьшенная высота */
+    }
+
+    .mainText {
+        margin: auto 0; /* Корректировка отступов */
+    }
+
+    .otherNews {
+        grid-template-columns: repeat(2, 1fr); /* Оставляем две колонки для маленьких изображений */
+        gap: 56px;
+    }
+
+    .newsItem img {
+        height: 280px; /* Одинаковая высота */
+    }
+
+    .newsItem {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .mainNews {
+        flex-direction: column;
+    }
+
+    .mainImage {
+        width: 100%;
+        height: auto;
+    }
+
+    .mainText {
+        margin: 0;
+        text-align: center;
+    }
+
+    .otherNews {
+        grid-template-columns: 1fr; /* Одна колонка для мобильных устройств */
+        gap: 24px; /* Уменьшаем расстояние между маленькими новостями */
+    }
+
+    .newsItem p {
+        font-size: clamp(1.125rem, 0.752rem + 1.299vw, 1.375rem);
+        line-height: 22px;
+    }
+    
+    .readMoreButton {
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+    }
+}

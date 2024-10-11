@@ -6,10 +6,13 @@ body {
   margin: 0;
 }
 
+header {
+  display: none;
+}
+
 .wrapper {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 24px; /* Отступы равные для всех сторон */
 }
 
 .main {

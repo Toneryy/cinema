@@ -1,13 +1,17 @@
-// Article1.tsx
 import React from 'react';
+import ArticleMovies from './ArticleMovies'
 
-const Article1: React.FC = () => {
+import s from '../../styles/App.module.css';
+
+function Article1() {
+
   return (
-    <div>
-      <h1>Solaris Synchrony: a Celestial Odyssey of Hope and Harmony</h1>
-      <p>Content of Article 1 goes here...</p>
+    <div className={s.wrapper}>
+      <main className={s.main}>
+        <ArticleMovies />
+      </main>
     </div>
   );
-};
+}
 
 export default Article1;

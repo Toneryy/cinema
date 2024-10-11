@@ -1,9 +1,7 @@
 /* FAQ.module.css */
 
 .FAQ {
-    display: flex;
     justify-content: space-between;
-    gap: 56px;
     align-items: flex-start; /* чтобы блоки начинались с одной линии */
     height: 494px;
     margin: 120px 0;
@@ -44,25 +42,18 @@
 }
 
 .haveQuestion {
-    margin-top: 32px; /* отступ между описанием и изображением */
+    margin-top: 32px;
     border-radius: 6px;
     padding: 69px 94.5px;
-    height: 248px; /* фиксированная высота для блока */
+    height: 248px;
     display: flex;
     gap: 16px;
     flex-direction: column;
     justify-content: space-between;
-    position: relative; /* для абсолютного позиционирования дочерних элементов */
-}
-
-.image {
-    position: absolute; /* абсолютное позиционирование изображения */
-    bottom: 0;
-    left: 0;
-    width: 100%; /* ширина 100% контейнера */
-    height: 248px; /* установите нужную высоту для изображения */
-    object-fit: cover; /* обрезка изображения */
-    z-index: 1; /* чтобы изображение было под текстом */
+    background: url('../data/mainPage/Content.png') no-repeat center;
+    background-size: cover; /* Чтобы изображение покрывало весь блок */
+    position: relative; /* Для того, чтобы блок оставался фиксированным */
+    overflow: hidden; /* Скрыть лишние элементы */
 }
 
 .questionTitle {
@@ -98,7 +89,7 @@
 }
 
 .faqItem {
-    background-color: #1c1c1e;
+    background-color: #242323;
     color: white;
     height: 80px;
     padding: 24px 72px 24px 24px;
@@ -128,55 +119,133 @@
     color: #878787;
 }
 
-/* Адаптивная верстка для планшетов и мобильных устройств */
-@media (max-width: 1024px) {
-    .FAQ {
-        flex-direction: column;
-        gap: 40px;
-        height: auto; /* убираем фиксированную высоту */
-        margin: 80px 0;
+.contactButton {
+    display: none;
+    width: 90%;
+    height: 30%;
+    padding: 10px 24px;
+    font-size: 20px;
+    margin: 10px auto;
+    border-radius: 8px;
+    background-color: #e50914; /* Пример цвета кнопки */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contactButton:hover {
+    background-color: #ff2e00; /* Более насыщенный цвет при наведении */
+}
+
+/* Медиа-запрос для 1240px */
+@media (max-width: 1240px) {
+    .leftBox {
+        width: 45%;
+        
     }
 
-    .leftBox, .rightBox {
-        width: 100%;
-        height: auto; /* убираем фиксированную высоту */
+    .rightBox {
+        width: 50%;
     }
 
-    .title {
-        font-size: 40px;
-        line-height: 48px;
-    }
-
-    .description {
-        font-size: 16px;
-        line-height: 24px;
+    .faqItem {
+        padding: 16px 64px 16px 16px;
     }
 
     .haveQuestion {
-        padding: 40px 24px; /* уменьшаем отступы */
-        height: auto; /* позволяем блоку растягиваться по высоте */
-    }
-
-    .questionTitle {
-        font-size: 20px;
-        line-height: 28px;
-    }
-
-    .questionDescription {
-        font-size: 16px;
-        line-height: 24px;
+        margin-top: 0px;
+        height: 300px; /* Фиксированная высота для предотвращения изменения размеров */
+        padding: 60px 50px;
     }
 
     .faqAnswer {
-        font-size: 10px;
+        margin: 0;
+        font-size: 14px;
     }
 }
 
-/* Адаптивная верстка для мобильных устройств */
+/* Медиа-запрос для 1024px */
+@media (max-width: 1024px) {
+    .title {
+        font-size: 32px;
+        line-height: 36px;
+    }
+
+    .leftBox {
+        width: 42%;
+    }
+
+    .rightBox {
+        width: 55%;
+    }
+
+    .faqItem {
+        padding: 12px 56px 12px 12px;
+    }
+
+    .haveQuestion {
+        height: 260px; /* Корректировка для этого разрешения */
+    }
+
+    .contactButton {
+        font-size: 14px;
+        padding: 8px 20px;
+    }
+
+    .faqAnswer {
+        font-size: 14px;
+    }
+}
+
+/* Медиа-запрос для 768px */
 @media (max-width: 768px) {
+    .FAQ {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
     .container {
         flex-direction: column;
-        gap: 32px;
+        align-items: center;
+    }
+
+    .leftBox,
+    .rightBox {
+        width: 100%;
+        height: auto;
+    }
+
+    .faqItem {
+        padding: 16px;
+    }
+
+    .faqAnswer {
+        font-size: 16px;
+    }
+
+    .haveQuestion {
+        height: 180px;
+    }
+
+    .contactButton {
+        display: block;
+    }
+}
+
+/* Медиа-запрос для 480px */
+@media (max-width: 480px) {
+    .FAQ {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+    }
+
+    .leftBox,
+    .rightBox {
+        width: 100%;
+        height: auto;
     }
 
     .title {
@@ -189,51 +258,30 @@
         line-height: 22px;
     }
 
-    .haveQuestion {
-        padding: 32px 16px;
-        height: auto; /* позволяем блоку растягиваться */
-    }
-
-    .questionTitle {
-        font-size: 18px;
-    }
-
-    .questionDescription {
-        font-size: 14px;
-    }
-
-    .rightBox {
-        height: auto; /* убираем фиксированную высоту */
-    }
-
     .faqItem {
-        padding: 16px 16px 16px 16px; /* уменьшаем padding */
-    }
-
-    .faqQuestion {
-        font-size: 16px;
+        padding: 12px;
     }
 
     .faqAnswer {
         font-size: 14px;
     }
-}
 
-@media (min-width: 1240px) {
-    .FAQ {
-        display: flex;
-        flex-direction: row;
+    .haveQuestion {
+        height: 180px;
     }
-}
 
-@media (max-width: 1024px) {
-    .FAQ {
-        flex-direction: column; /* На планшетах компоненты располагаются в одну колонку */
+    .contactButton {
+        font-size: 12px;
+        padding: 6px 12px;
     }
-}
 
-@media (max-width: 768px) {
-    .FAQ {
-        flex-direction: column;
+    .questionTitle {
+        font-size: 22px;
+        line-height: 26px;
+    }
+
+    .questionDescription {
+        font-size: 16px;
+        line-height: 20px;
     }
 }

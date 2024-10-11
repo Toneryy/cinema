@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import s from "../styles/FAQ.module.css";
-import Content from "../data/mainPage/Content.png";
 
 const faqData = [
   {
@@ -45,7 +44,7 @@ const FAQ: React.FC = () => {
             <p className={s.questionDescription}>
               Lorem Ipsum is simply dummy text of the printing and typesetting.
             </p>
-            <img className={s.image} src={Content} alt="Content" />
+            <button className={s.contactButton}>Contact Us</button>
           </div>
         </div>
 

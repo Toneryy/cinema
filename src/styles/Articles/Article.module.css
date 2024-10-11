@@ -1,0 +1,95 @@
+/* Article.module.css */
+
+.moviesSection {
+  width: 100%; /* Занимает всю ширину wrapper */
+  color: white;
+}
+
+.moviesSection h1 {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 56px;
+  text-align: center;
+}
+
+.moviesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 56px;
+  width: 100%;
+}
+
+.filterButtons {
+  display: flex;
+  justify-content: flex-start; /* Выравнивание кнопок по левому краю */
+  margin-bottom: 20px;
+  overflow-x: auto; /* Включаем горизонтальную прокрутку */
+  white-space: nowrap; /* Отключаем перенос текста */
+  scrollbar-width: none; /* Убираем стандартную полосу прокрутки для Firefox */
+  -ms-overflow-style: none; /* Убираем стандартную полосу прокрутки для IE и Edge */
+}
+
+.filterButtons::-webkit-scrollbar {
+  display: none; /* Убираем полосу прокрутки для Chrome, Safari и Opera */
+}
+
+.filterButtons button {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: white;
+  white-space: nowrap; /* Запрещаем перенос текста в кнопках */
+  transition: background 0.1s ease;
+}
+
+.filterButtons .active {
+  background-color: #606060;
+  border-radius: 8px;
+  color: #242323;
+}
+
+.filterButtons button:hover {
+    background-color: #606060;
+    border-radius: 8px;
+    color: #242323;
+}
+
+.genresWrapper {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto; /* Включаем горизонтальную прокрутку */
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.genresWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .moviesGrid {
+    gap: 32px;
+    grid-template-columns: repeat(2, 1fr); /* Две колонки на экранах 1024px */
+  }
+
+  .filterButtons {
+    justify-content: flex-start; /* Сдвигаем кнопки влево */
+  }
+}
+
+@media (max-width: 768px) {
+  .moviesGrid {
+    grid-template-columns: 1fr; /* Одна колонка на экранах 768px */
+  }
+
+  .filterButtons {
+    justify-content: flex-start; /* Сдвигаем кнопки влево */
+  }
+
+  .genresWrapper {
+    justify-content: flex-start;
+  }
+}

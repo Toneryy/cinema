@@ -1,0 +1,63 @@
+.movieCard {
+  background-color: #333;
+  cursor: pointer;
+  transition: transform 0.3s;
+  position: relative;
+  background-size: cover; /* Изображение покрывает всю карточку */
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 400px; /* Фиксированная высота карточки */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Текст будет выравниваться по нижней части карточки */
+  padding: 20px;
+  overflow: hidden; /* Обрезаем контент, если он выходит за пределы карточки */
+  border-radius: 8px;
+}
+
+.movieCard:hover {
+  transform: scale(1.05);
+}
+
+.movieCard h3 {
+  margin: 0 0 10px 0; /* Убираем верхний отступ и задаем небольшой нижний */
+  font-size: 24px;
+  color: white;
+  z-index: 2;
+  text-align: center;
+}
+
+.movieCard p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 26px;
+  color: #878787;
+  z-index: 2;
+  text-align: center;
+}
+
+.movieCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Добавляем затемнение для контраста текста */
+  z-index: 1;
+}
+
+.movieImage {
+  display: none; /* Скрываем img, если он используется */
+}
+
+@media (max-width: 1024px) {
+  .movieCard {
+    height: 300px;
+  }
+}

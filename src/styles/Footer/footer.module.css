@@ -131,12 +131,16 @@ footer {
     margin: 0 10px;
   }
 
+  .socials {
+    margin: 50px 0 20px;
+  }
+
   .footerBottom {
     flex-direction: column;
     text-align: center;
   }
 
   .footerLinks {
-    margin-top: 10px;
+    margin-top: 5px;
   }
 }
