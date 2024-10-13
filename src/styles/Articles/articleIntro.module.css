@@ -1,0 +1,56 @@
+.content {
+    padding: 200px 180px;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 56px;
+    text-align: center;
+    margin: 0;
+}
+
+.subTitle {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+    margin: 24px 0 32px;
+}
+
+.buttonContainer {
+    justify-content: center;
+    display: flex;
+    gap: 24px;
+}
+
+.buttonContainer .watchTrailer, .buttonContainer .watchList {
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buttonContainer .watchTrailer:hover, .buttonContainer .watchList:hover {
+    background-color: #777;
+}
+
+.watchTrailer {
+    width: 179px;
+    height: 56px;
+    border-radius: 6px;
+    background: #e50914;
+    padding: 16px 24px;
+    border: none;
+}
+
+.watchList {
+    width: 159px;
+    height: 56px;
+    border-radius: 6px;
+    background: #383838;
+    padding: 16px 24px;
+    border: none;
+}

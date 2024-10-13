@@ -45,7 +45,7 @@
     gap: 24px;
 }
 
-.buttonContainer button {
+.buttonContainer .watchTrailer, .buttonContainer .moreInfo  {
     color: #fff;
     font-weight: 600;
     font-size: 16px;
@@ -54,7 +54,7 @@
     transition: background-color 0.3s ease;
 }
 
-.buttonContainer button:hover {
+.buttonContainer .watchTrailer:hover, .buttonContainer .moreInfo:hover {
     background-color: #777;
 }
 

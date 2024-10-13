@@ -12,13 +12,15 @@ interface Movie {
 
 interface MovieCardProps {
   movie: Movie;
+  onClick: (title: string) => void; // Функция для передачи заголовка
 }
 
-const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
+const MovieCard: React.FC<MovieCardProps> = ({ movie, onClick }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/article${movie.id}`);
+    onClick(movie.title); // Вызываем функцию и передаем заголовок
+    navigate(`/article${movie.id}`); // Переход на страницу статьи
   };
 
   return (
