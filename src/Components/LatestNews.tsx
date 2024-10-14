@@ -5,8 +5,15 @@ import Image1 from '../data/mainPage/moviesImg/Image1.png';
 import Image2 from '../data/mainPage/moviesImg/Image2.png';
 import Image3 from '../data/mainPage/moviesImg/Image3.png';
 import Image4 from '../data/mainPage/moviesImg/Image4.png';
+import { useNavigate } from "react-router-dom";
 
 const LatestNews: React.FC = () => {
+    const navigate = useNavigate();
+
+    const handleReadMore = () => {
+        navigate('/article1');
+    }
+
     return (
         <section className={s.newsSection}>
             <h2 className={s.title}>
@@ -19,7 +26,7 @@ const LatestNews: React.FC = () => {
                     <div className={s.mainText}>
                         <h2>“Solaris Synchrony:” Fires Up on Tracking with $50M Opening</h2>
                         <p>Against the backdrop of a dying Earth, a group of scientists races to execute a daring plan to synchronize the consciousness of humanity with a new solar system...</p>
-                        <button className={s.readMoreButton}>Read More</button>
+                        <button className={s.readMoreButton} onClick={handleReadMore}>Read More</button>
                     </div>
                 </div>
 

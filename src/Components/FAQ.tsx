@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import s from "../styles/FAQ.module.css";
+import { useNavigate } from "react-router-dom";
 
 const faqData = [
   {
@@ -30,6 +31,11 @@ const FAQ: React.FC = () => {
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+  const navigate = useNavigate();
+
+  const handleFAQ = () => {
+    navigate('/faq')
+  }
 
   return (
     <section className={s.FAQ}>
@@ -44,7 +50,7 @@ const FAQ: React.FC = () => {
             <p className={s.questionDescription}>
               Lorem Ipsum is simply dummy text of the printing and typesetting.
             </p>
-            <button className={s.contactButton}>Contact Us</button>
+            <button className={s.contactButton} onClick={handleFAQ}>Contact Us</button>
           </div>
         </div>
 

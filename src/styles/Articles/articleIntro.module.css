@@ -1,3 +1,11 @@
+.introSection {
+    background: url('../../data/mainPage/ArticleBG.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    border-radius: 8px;
+}
+
 .content {
     padding: 200px 180px;
 }
@@ -50,7 +58,7 @@
     width: 159px;
     height: 56px;
     border-radius: 6px;
-    background: #383838;
+    background: transparent;
     padding: 16px 24px;
-    border: none;
+    border: 1px #F14141 solid;
 }

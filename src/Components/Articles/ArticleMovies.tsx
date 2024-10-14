@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import MovieCard from './MovieCard';
 import styles from '../../styles/Articles/Article.module.css';
 
-import image from '../../data/mainPage/slider/Image1.png';
-
 interface Movie {
   id: number;
   title: string;
@@ -12,22 +10,14 @@ interface Movie {
   image: string;
 }
 
-export const moviesData: Movie[] = [  // Экспортируем массив фильмов
-  { id: 1, title: 'The Celestial Chiper', genre: 'Sci-Fi', description: 'In a realm where constellations...', image: image },
-  { id: 2, title: 'Ephemeral Echoes', genre: 'Drama', description: 'In a world where memories...', image: image },
-  { id: 3, title: 'Spectral Reverie', genre: 'Fantasy', description: 'A gifted artist discovers...', image: image },
-  { id: 4, title: 'Crimson Serendipity', genre: 'Drama', description: 'Against the backdrop of...', image: image },
-  { id: 5, title: 'Quantum Mirage', genre: 'Sci-Fi', description: 'A brilliant physicist...', image: image },
-  { id: 6, title: 'Solaris Synchrony', genre: 'Sci-Fi', description: 'Against the backdrop of...', image: image },
-];
+interface ArticleMoviesProps {
+  moviesData: Movie[]; // Массив фильмов
+  onSelectMovie: (movieTitle: string) => void; // Функция для выбора фильма
+}
 
 const genres: string[] = ['All', 'Action', 'Drama', 'Comedy', 'Sci-Fi', 'Horror', 'Romance', 'Musical'];
 
-interface ArticleMoviesProps {
-  onSelectMovie: (movieTitle: string) => void; // Пропс для передачи выбранного заголовка фильма
-}
-
-const ArticleMovies: React.FC<ArticleMoviesProps> = ({ onSelectMovie }) => {
+const ArticleMovies: React.FC<ArticleMoviesProps> = ({ moviesData, onSelectMovie }) => {
   const [selectedGenre, setSelectedGenre] = useState<string>('All');
 
   const handleGenreClick = (genre: string) => {
@@ -57,10 +47,10 @@ const ArticleMovies: React.FC<ArticleMoviesProps> = ({ onSelectMovie }) => {
 
       <div className={styles.moviesGrid}>
         {filteredMovies.map((movie) => (
-          <MovieCard 
-            key={movie.id} 
-            movie={movie} 
-            onClick={onSelectMovie} // Передаем функцию в MovieCard
+          <MovieCard
+            key={movie.id}
+            movie={movie}
+            onClick={() => onSelectMovie(movie.title)} // Вызываем функцию выбора фильма
           />
         ))}
       </div>

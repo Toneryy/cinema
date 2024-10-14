@@ -1,35 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import s from '../styles/intro.module.css';
-import Image1 from '../data/mainPage/slider/Image1.png';
-import Image2 from '../data/mainPage/slider/Image2.png';
-import Image3 from '../data/mainPage/slider/Image3.png';
 
-const articles = [
-  {
-    title: "Solaris Synchrony: a Celestial Odyssey of Hope and Harmony",
-    text: "Against the backdrop of a dying Earth, a group of scientists races to execute a daring plan...",
-    image: Image1,
-    link: "/article1"
-  },
-  {
-    title: "The Martian's Struggle for Survival",
-    text: "Follow the lone survivor's fight to return home from Mars after a catastrophic mission failure...",
-    image: Image2,
-    link: "/article2"
-  },
-  {
-    title: "Journey to the Heart of the Black Hole",
-    text: "An interstellar adventure through time and space to uncover the mysteries of the universe's darkest realm...",
-    image: Image3,
-    link: "/article3"
-  }
-];
+interface Article {
+  title: string;
+  text: string;
+  image: string;
+  link: string;
+}
 
-const Intro: React.FC = () => {
+interface IntroProps {
+  articles: Article[];
+}
+
+const Intro: React.FC<IntroProps> = ({ articles }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [autoSlide, setAutoSlide] = useState(true);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Хук для навигации
+
+  const handleWatchTrailer = () => {
+      navigate('/article1?trailer=true');  // Переход с query параметром
+  };
+
+  const handleMoreInfo = () => {
+      navigate('/article1');  // Переход на страницу Article1
+  };
 
   useEffect(() => {
     const slideTimer = setInterval(() => {
@@ -39,7 +34,7 @@ const Intro: React.FC = () => {
     }, 3000);
 
     return () => clearInterval(slideTimer);
-  }, [autoSlide]);
+  }, [autoSlide, articles.length]);
 
   const handleNextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % articles.length);
@@ -58,11 +53,13 @@ const Intro: React.FC = () => {
   return (
     <section className={s.introSection}>
       <div className={s.description}>
-        <h1 className={s.title} onClick={() => handleTitleClick(articles[currentSlide].link)}>{articles[currentSlide].title}</h1>
+        <h1 className={s.title} onClick={() => handleTitleClick(articles[currentSlide].link)}>
+          {articles[currentSlide].title}
+        </h1>
         <p className={s.subtitle}>{articles[currentSlide].text}</p>
         <div className={s.buttonContainer}>
-          <button className={s.watchTrailer}>Watch Trailer</button>
-          <button className={s.moreInfo}>More Info</button>
+          <button className={s.watchTrailer} onClick={handleWatchTrailer}>Watch Trailer</button>
+          <button className={s.moreInfo} onClick={handleMoreInfo}>More Info</button>
         </div>
         <div className={s.sliderControls}>
           <button onClick={handlePrevSlide} className={s.prev}>◀</button>

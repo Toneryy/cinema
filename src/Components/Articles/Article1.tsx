@@ -1,14 +1,25 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import s from '../../styles/App.module.css';
-
 import ArticleIntro from './ArticleIntro';
+import Description from './Description';
 import ArticleMovies from './ArticleMovies';
 import Trailer from './Trailer';
 import Hero from '../Hero';
-import { moviesData } from './ArticleMovies';
 import { useLocation } from 'react-router-dom';
 
-function Article1() {
+interface Movie {
+  id: number;
+  title: string;
+  genre: string;
+  description: string;
+  image: string;
+}
+
+interface Article1Props {
+  moviesData: Movie[];
+}
+
+const Article1: React.FC<Article1Props> = ({ moviesData }) => {
   const [Title, setTitle] = useState<string>(moviesData[5].title);
   const trailerRef = useRef<HTMLDivElement | null>(null);
   const location = useLocation();
@@ -20,7 +31,7 @@ function Article1() {
     }
   };
 
-  // Эффект, который прокручивает к трейлеру, если в URL есть query параметр `trailer=true`
+  // Эффект для автоматической прокрутки к трейлеру, если в URL есть query-параметр `trailer=true`
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     if (searchParams.get('trailer') === 'true') {
@@ -36,8 +47,9 @@ function Article1() {
   return (
     <div className={s.wrapper}>
       <main className={s.main}>
-        <ArticleIntro Title={Title}/>
-        <ArticleMovies onSelectMovie={handleSelectMovie} />
+        <ArticleIntro Title={Title} />
+        <Description />
+        <ArticleMovies onSelectMovie={handleSelectMovie} moviesData={moviesData} />
         {/* Секция с трейлером */}
         <div ref={trailerRef}>
           <Trailer videoSrc="https://www.youtube.com/watch?v=sZqOrsMLh80" Title={Title} />
@@ -46,6 +58,6 @@ function Article1() {
       </main>
     </div>
   );
-}
+};
 
 export default Article1;

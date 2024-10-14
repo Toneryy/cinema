@@ -1,12 +1,10 @@
-// Header.tsx
-
 import React, { useState } from 'react'; 
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { ReactComponent as Icon } from '../data/mainPage/menuIcon.svg';
 import s from '../styles/Header/header.module.css';
-
 import logo from '../data/mainPage/logo.png';
 import search from '../data/mainPage/search.png';
-import SearchModal from './Search/SearchModal'; // Импортируй новый компонент
+import SearchModal from './Search/SearchModal';
 
 interface HeaderProps {
   scrollToHero: () => void;
@@ -14,18 +12,23 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ scrollToHero }) => {
   const navigate = useNavigate();
-  const [isSearchOpen, setSearchOpen] = useState(false); // Состояние для управления модальным окном поиска
+  const [isSearchOpen, setSearchOpen] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false); // Состояние для меню
 
   const handleSubscribeClick = () => {
-    scrollToHero(); // Прокрутка до Hero
+    scrollToHero();
   };
 
   const handleOpenSearch = () => {
-    setSearchOpen(true); // Открытие модального окна поиска
+    setSearchOpen(true);
   };
 
   const handleCloseSearch = () => {
-    setSearchOpen(false); // Закрытие модального окна поиска
+    setSearchOpen(false);
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen); // Открытие/закрытие меню
   };
 
   return (
@@ -34,21 +37,30 @@ const Header: React.FC<HeaderProps> = ({ scrollToHero }) => {
         <a href="/" className={s.logo}>
           <img src={logo} alt="logo.png" />
         </a>
-        <nav className={s.nav}>
-          <ul>
-            <li>Home</li>
-            <li>Live</li>
-            <li>TV Shows</li>
-            <li>Movies</li>
-          </ul>
-        </nav>
-        <div className={s.buttonContainer}>
-          <button className={s.searchBtn} onClick={handleOpenSearch}><img src={search} alt="search" /></button>
-          <button className={s.subscribeBtn} onClick={handleSubscribeClick}>Subscribe</button>
-          <button className={s.loginBtn} onClick={() => navigate('/login')}>Sign In</button>
+
+        <button className={s.burgerButton} onClick={toggleMenu}>
+          <Icon />
+        </button>
+
+        {/* Добавляем обертку для навигации и кнопок */}
+        <div className={`${s.menuContainer} ${isMenuOpen ? s.open : ''}`}>
+          <nav className={s.nav}>
+            <ul>
+              <li><NavLink to="/">Home</NavLink></li>
+              <li><NavLink to="/live">Live</NavLink></li>
+              <li><NavLink to="/tv-shows">TV Shows</NavLink></li>
+              <li><NavLink to="/movies">Movies</NavLink></li>
+            </ul>
+          </nav>
+          <div className={s.buttonContainer}>
+            <button className={s.searchBtn} onClick={handleOpenSearch}><img src={search} alt="search" /></button>
+            <button className={s.subscribeBtn} onClick={handleSubscribeClick}>Subscribe</button>
+            <button className={s.loginBtn} onClick={() => navigate('/login')}>Sign In</button>
+          </div>
         </div>
       </div>
-      <SearchModal isOpen={isSearchOpen} onClose={handleCloseSearch} /> {/* Добавление модального окна поиска */}
+
+      <SearchModal isOpen={isSearchOpen} onClose={handleCloseSearch} />
     </header>
   );
 };
