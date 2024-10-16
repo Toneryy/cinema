@@ -1,9 +1,22 @@
 .introSection {
+    width: 100%;
+    position: relative;
+}
+
+.introSection::after {
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 8px;
     background: url('../../data/mainPage/ArticleBG.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed;
-    border-radius: 8px;
+    background-size: cover;
+    opacity: 0.5;
+    position: absolute;
+    z-index: -1;
 }
 
 .content {
@@ -32,11 +45,14 @@
     gap: 24px;
 }
 
-.buttonContainer .watchTrailer, .buttonContainer .watchList {
+.buttonContainer button {
     color: #fff;
+    height: 56px;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
+    padding: 16px 24px;
+    border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -47,18 +63,76 @@
 
 .watchTrailer {
     width: 179px;
-    height: 56px;
-    border-radius: 6px;
     background: #e50914;
-    padding: 16px 24px;
     border: none;
 }
 
 .watchList {
     width: 159px;
-    height: 56px;
-    border-radius: 6px;
     background: transparent;
-    padding: 16px 24px;
     border: 1px #F14141 solid;
+}
+
+@media (max-width: 768px) {
+    .introSection {
+        height: 600px;
+    }
+
+    .content {
+        padding: 110px 80px;
+    }
+
+    .title {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .subTitle {
+        font-size: 20px;
+        line-height: 28px;
+        margin: 18px 0 0 0;
+    }
+
+    .buttonContainer {
+        margin-top: 12px;
+        gap: 18px;
+        flex-direction: column;
+    }
+
+    .buttonContainer button {
+        width: 100%;
+    }
+
+    .buttonContainer .watchList {
+        background: rgba(1, 1, 1, 0.5);
+    }
+}
+
+@media (max-width: 480px) {
+    .introSection {
+        height: 400px;
+    }
+
+    .content {
+        padding: 60px 40px;
+    }
+
+    .title {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    .subTitle {
+        font-size: 14px;
+        line-height: 18px;
+        margin: 18px 0 0 0;
+    }
+
+    .buttonContainer button {
+        height: 32px;
+        font-size: 16px;
+        padding: 0px 8px;
+        width: 80%;
+        margin: 0px auto;
+    }
 }

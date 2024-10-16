@@ -4,7 +4,7 @@ import s from '../styles/hero.module.css';
 const Hero = forwardRef<HTMLElement>((props, ref) => {
   return (
     <section ref={ref} className={s.heroSection}>
-      <div className="wrapper">
+      <div className={s.wrapper}>
         <h1 className={s.heroTitle}>Unlock Your Cinematic Experience! Ready to Dive Into Movie Magic</h1>
         <p className={s.heroSubtitle}>
           Embark on a journey beyond the ordinary and unlock the door to a world where every frame tells a story and every scene is a masterpiece.

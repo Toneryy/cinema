@@ -1,3 +1,5 @@
+// ArticleMovies.tsx
+
 import React, { useState } from 'react';
 import MovieCard from './MovieCard';
 import styles from '../../styles/Articles/Article.module.css';
@@ -30,7 +32,7 @@ const ArticleMovies: React.FC<ArticleMoviesProps> = ({ moviesData, onSelectMovie
 
   return (
     <div className={styles.moviesSection}>
-      <h1>Explore Our Wide Range of Movie Categories and Genres</h1>
+      <h1 className={styles.title}>Explore Our Wide Range of Movie Categories and Genres</h1>
       <div className={styles.filterButtons}>
         <div className={styles.genresWrapper}>
           {genres.map((genre) => (

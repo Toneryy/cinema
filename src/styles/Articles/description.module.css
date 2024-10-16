@@ -17,3 +17,10 @@
     line-height: 32px;
     text-align: left;
 }
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 36px;
+        line-height: 40px;
+    }
+}

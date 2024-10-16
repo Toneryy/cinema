@@ -1,3 +1,5 @@
+// Article1.tsx
+
 import React, { useState, useEffect, useRef } from 'react';
 import s from '../../styles/App.module.css';
 import ArticleIntro from './ArticleIntro';
@@ -45,18 +47,16 @@ const Article1: React.FC<Article1Props> = ({ moviesData }) => {
   };
 
   return (
-    <div className={s.wrapper}>
-      <main className={s.main}>
-        <ArticleIntro Title={Title} />
-        <Description />
-        <ArticleMovies onSelectMovie={handleSelectMovie} moviesData={moviesData} />
-        {/* Секция с трейлером */}
-        <div ref={trailerRef}>
-          <Trailer videoSrc="https://www.youtube.com/watch?v=sZqOrsMLh80" Title={Title} />
-        </div>
-        <Hero />
-      </main>
-    </div>
+    <main className={s.main}>
+      <ArticleIntro Title={Title} />
+      <Description />
+      <ArticleMovies onSelectMovie={handleSelectMovie} moviesData={moviesData} />
+      {/* Секция с трейлером */}
+      <div ref={trailerRef}>
+        <Trailer videoSrc="https://www.youtube.com/watch?v=sZqOrsMLh80" Title={Title} />
+      </div>
+      <Hero />
+    </main>
   );
 };
 

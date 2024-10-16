@@ -5,7 +5,7 @@
   color: white;
 }
 
-.moviesSection h1 {
+.moviesSection .title {
   font-weight: 600;
   font-size: 48px;
   line-height: 56px;
@@ -81,6 +81,11 @@
 }
 
 @media (max-width: 768px) {
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
   .moviesGrid {
     grid-template-columns: 1fr; /* Одна колонка на экранах 768px */
   }

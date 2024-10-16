@@ -1,3 +1,5 @@
+// ArticleIntro.tsx
+
 import React from "react";
 import s from '../../styles/Articles/articleIntro.module.css';
 

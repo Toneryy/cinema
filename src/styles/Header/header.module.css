@@ -113,6 +113,7 @@
     border: none;
     cursor: pointer;
     padding: 0;
+    margin: auto 0;
   }
 
   /* Новый контейнер для меню */
@@ -163,7 +164,7 @@
 
   .buttonContainer {
     padding-left: 20px; /* Отступ слева для кнопок */
-    margin-bottom: 400px; /* Отступ снизу для кнопок */
+    margin-bottom: 350px; /* Отступ снизу для кнопок */
     display: flex;
     flex-direction: column;
     gap: 16px; /* Расстояние между кнопками */
