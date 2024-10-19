@@ -28,7 +28,13 @@
     font-size: 48px;
     line-height: 56px;
     text-align: left;
+    cursor: pointer;
     margin: 0; /* убираем любые отступы */
+    transition: color 0.15s ease;
+}
+
+.title:hover {
+    color: #fc6565;
 }
 
 .description {

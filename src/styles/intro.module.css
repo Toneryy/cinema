@@ -94,6 +94,7 @@
 .photoContainer img {
     width: 432px;
     height: 458px;
+    
 }
   
 /* Адаптивность */
@@ -115,6 +116,10 @@
 }
 
 @media (max-width: 1024px) {
+    .introSection {
+        gap: clamp(0rem, -12.188rem + 25.391vw, 4.063rem);
+    }
+
     .title {
         font-size: 30px; /* Уменьшаем размер шрифта заголовка */
         line-height: 36px;
@@ -126,7 +131,7 @@
     }
 
     .photoContainer img {
-        width: 372px;
+        width: 352px;
         height: 320px;
     }
 }

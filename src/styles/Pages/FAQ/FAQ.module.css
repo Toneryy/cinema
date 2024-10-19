@@ -1,0 +1,115 @@
+/* FAQ.module.css */
+
+.FAQSection {
+    margin-top: 56px;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 56px;
+    text-align: center;
+    margin: 0;
+}
+
+.subtitle {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 24px;
+    color: #878787;
+}
+
+.gridContainer {
+    display: grid;
+    margin-top: 56px;
+    gap: 32px; /* Для компьютеров и больших экранов */
+    grid-template-columns: repeat(3, 1fr); /* Три колонки для больших экранов */
+}
+
+.gridItem {
+    width: 392px;
+    height: 244px;
+    border: 1px #242423 solid;
+    border-radius: 8px;
+    padding: 32px;
+    box-sizing: border-box; /* Учитывает padding и border в общей ширине и высоте */
+}
+
+.gridItem img {
+    width: 56px;
+    height: 56px;
+}
+
+.gridItem .gridTitle {
+    margin-top: 24px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: left;
+}
+
+.gridItem .gridDescription {
+    margin-top: 16px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    text-align: left;
+    color: #878787;
+}
+
+/* Адаптив для планшетов */
+@media (max-width: 1240px) {
+    .gridContainer {
+        gap: 24px;
+        grid-template-columns: repeat(3, 1fr); /* Две колонки при разрешении ниже 1240px */
+    }
+
+    .gridItem {
+        width: auto;
+        height: auto;
+    }
+}
+
+/* Медиазапрос для планшетов (ниже 1024px) */
+@media (max-width: 1024px) {
+    .gridContainer {
+        gap: 32px;
+        grid-template-columns: repeat(2, 1fr); /* Две колонки на планшетах */
+    }
+
+    .gridItem {
+        width: 100%; 
+        max-width: none; /* Убираем max-width для корректного поведения */
+    }
+}
+
+/* Медиазапрос для мобильных устройств (ниже 768px) */
+@media (max-width: 768px) {
+    .gridContainer {
+        gap: 16px; /* Уменьшаем gap до 16px */
+        grid-template-columns: 1fr; /* Одна колонка на мобильных */
+    }
+
+    .gridItem {
+        width: 100%; 
+        max-width: none;
+    }
+
+    .title {
+        font-size: 32px;
+        line-height: 40px;
+    }
+}
+
+/* Еще меньшие экраны (ниже 480px) */
+@media (max-width: 480px) {
+    .gridItem {
+        padding: 16px; /* Уменьшаем padding для небольших экранов */
+    }
+
+    .title {
+        font-size: 24px;
+        line-height: 36px;
+    }
+}

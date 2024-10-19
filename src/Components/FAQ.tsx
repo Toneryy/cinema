@@ -41,7 +41,7 @@ const FAQ: React.FC = () => {
     <section className={s.FAQ}>
       <div className={s.container}>
         <div className={s.leftBox}>
-          <h2 className={s.title}>Frequently Asked Question</h2>
+          <h2 className={s.title} onClick={handleFAQ}>Frequently Asked Question</h2>
           <p className={s.description}>
             Check out our Frequently Asked Questions section for everything you need to know about your movie streaming experience.
           </p>
