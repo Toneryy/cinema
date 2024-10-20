@@ -16,6 +16,9 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 26px;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 770px;
     margin-top: 24px;
     color: #878787;
 }
@@ -34,6 +37,13 @@
     border-radius: 8px;
     padding: 32px;
     box-sizing: border-box; /* Учитывает padding и border в общей ширине и высоте */
+    transition: box-shadow 0.15s ease;
+}
+
+.gridItem:hover {
+    -webkit-box-shadow: 1px 0px 8px 0px rgba(255, 255, 255, 0.2);
+    -moz-box-shadow: 1px 0px 8px 0px rgba(255, 255, 255, 0.2);
+    box-shadow: 1px 0px 8px 0px rgba(255, 255, 255, 0.2);
 }
 
 .gridItem img {

@@ -1,5 +1,7 @@
 import React from "react";
 
+import Hero from "../../Hero";
+
 import s from '../../../styles/Pages/FAQ/FAQ.module.css'
 import styles from '../../../styles/App.module.css'
 
@@ -67,6 +69,7 @@ const FaqPage: React.FC = () => {
                     </div>
                 </div>
             </section>
+            <Hero />
         </main>
     );
 }

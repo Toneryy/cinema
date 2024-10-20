@@ -1,5 +1,5 @@
 import React, { useState } from 'react'; 
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { ReactComponent as Icon } from '../data/mainPage/menuIcon.svg';
 import s from '../styles/Header/header.module.css';
 import logo from '../data/mainPage/logo.png';
@@ -7,16 +7,24 @@ import search from '../data/mainPage/search.png';
 import SearchModal from './Search/SearchModal';
 
 interface HeaderProps {
-  scrollToHero: () => void;
+  heroRef: React.RefObject<HTMLDivElement>; // Используем реф для Hero
 }
 
-const Header: React.FC<HeaderProps> = ({ scrollToHero }) => {
+const Header: React.FC<HeaderProps> = ({ heroRef }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isSearchOpen, setSearchOpen] = useState(false);
-  const [isMenuOpen, setMenuOpen] = useState(false); // Состояние для меню
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
   const handleSubscribeClick = () => {
-    scrollToHero();
+    if (location.pathname === '/') {
+      heroRef.current?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/');
+      setTimeout(() => {
+        heroRef.current?.scrollIntoView({ behavior: 'smooth' });
+      }, 500);
+    }
   };
 
   const handleOpenSearch = () => {
@@ -28,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({ scrollToHero }) => {
   };
 
   const toggleMenu = () => {
-    setMenuOpen(!isMenuOpen); // Открытие/закрытие меню
+    setMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -42,7 +50,6 @@ const Header: React.FC<HeaderProps> = ({ scrollToHero }) => {
           <Icon />
         </button>
 
-        {/* Добавляем обертку для навигации и кнопок */}
         <div className={`${s.menuContainer} ${isMenuOpen ? s.open : ''}`}>
           <nav className={s.nav}>
             <ul>

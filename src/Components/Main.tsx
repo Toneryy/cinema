@@ -14,7 +14,7 @@ interface Article {
 }
 
 interface MainProps {
-  heroRef: React.RefObject<HTMLElement>;
+  heroRef: React.RefObject<HTMLElement>; // Изменяем тип на HTMLElement
   articles: Article[];
 }
 
@@ -25,7 +25,7 @@ const Main: React.FC<MainProps> = ({ heroRef, articles }) => {
       <Movies />
       <LatestNews />
       <FAQ />
-      <Hero ref={heroRef} />
+      <Hero ref={heroRef} /> {/* Убедитесь, что Hero принимает реф */}
     </main>
   );
 };

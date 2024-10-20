@@ -3,6 +3,8 @@
 .introSection {
     margin: 112px 0 120px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 65px;
 }
 

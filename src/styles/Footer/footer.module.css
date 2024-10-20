@@ -53,6 +53,7 @@ footer {
   line-height: 26px;
   text-align: left;
   margin-bottom: 12px;
+  cursor: pointer;
 }
 
 .links ul a {
