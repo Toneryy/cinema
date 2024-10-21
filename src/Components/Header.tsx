@@ -4,13 +4,15 @@ import { ReactComponent as Icon } from '../data/mainPage/menuIcon.svg';
 import s from '../styles/Header/header.module.css';
 import logo from '../data/mainPage/logo.png';
 import search from '../data/mainPage/search.png';
+import profileIcon from '../data/mainPage/profile.png';
 import SearchModal from './Search/SearchModal';
 
 interface HeaderProps {
-  heroRef: React.RefObject<HTMLDivElement>; // Используем реф для Hero
+  heroRef: React.RefObject<HTMLDivElement>;
+  isAuthenticated: boolean; // Добавляем пропс для авторизации
 }
 
-const Header: React.FC<HeaderProps> = ({ heroRef }) => {
+const Header: React.FC<HeaderProps> = ({ heroRef, isAuthenticated }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isSearchOpen, setSearchOpen] = useState(false);
@@ -43,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({ heroRef }) => {
     <header className={s.header}>
       <div className={s.headerLine}>
         <a href="/" className={s.logo}>
-          <img src={logo} alt="logo.png" />
+          <img src={logo} alt="logotype" />
         </a>
 
         <button className={s.burgerButton} onClick={toggleMenu}>
@@ -62,7 +64,17 @@ const Header: React.FC<HeaderProps> = ({ heroRef }) => {
           <div className={s.buttonContainer}>
             <button className={s.searchBtn} onClick={handleOpenSearch}><img src={search} alt="search" /></button>
             <button className={s.subscribeBtn} onClick={handleSubscribeClick}>Subscribe</button>
-            <button className={s.loginBtn} onClick={() => navigate('/login')}>Sign In</button>
+            {/* Используем переданный пропс isAuthenticated для проверки авторизации */}
+            {isAuthenticated ? (
+              <img 
+                src={profileIcon} 
+                alt="Profile" 
+                className={s.profileIcon}
+                onClick={() => navigate('/profile')} 
+              />
+            ) : (
+              <button className={s.loginBtn} onClick={() => navigate('/login')}>Sign In</button>
+            )}
           </div>
         </div>
       </div>
