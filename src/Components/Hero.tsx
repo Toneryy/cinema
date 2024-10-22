@@ -1,5 +1,5 @@
 import React, { forwardRef, useState, useRef } from 'react';
-import s from '../styles/hero.module.css';
+import s from '../styles/hero.module.scss';
 
 const Hero = forwardRef<HTMLElement>((props, ref) => {
   const [email, setEmail] = useState('');

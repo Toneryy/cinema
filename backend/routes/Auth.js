@@ -1,8 +1,11 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken'); // Добавляем jwt
 const User = require('../models/User');
 
 const router = express.Router();
+
+const JWT_SECRET = 'your-secret-key'; // Секретный ключ для подписи JWT
 
 // Обработчик GET для /api/auth
 router.get('/', (req, res) => {
@@ -52,7 +55,10 @@ router.post('/login', async (req, res) => {
         return res.status(400).json({ message: 'Неверные учетные данные' });
     }
 
-    res.status(200).json({ message: 'Успешный вход' });
+    // Генерация JWT токена
+    const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '1h' });
+
+    res.status(200).json({ message: 'Успешный вход', token }); // Отправляем токен клиенту
 });
 
 module.exports = router;

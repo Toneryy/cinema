@@ -1,0 +1,267 @@
+@import "../variables";
+
+.login {
+  margin: 0px;
+  /* background: url('../../data/Login/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.content {
+  width: 100%;
+  margin: 85px 274px;
+  text-align: center;
+  background: transparent;
+  padding: 80px;
+  border-radius: 8px;
+  border: 2px solid #f14141;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin: $no-margin;
+  font-size: 40px;
+  font-weight: $font-weight-semiBold;
+  line-height: 48px;
+  text-align: center;
+}
+
+.subtitle {
+  margin: 24px 0 32px;
+  color: #878787;
+  font-size: 18px;
+  font-weight: $font-size-medium;
+  line-height: 26px;
+  text-align: center;
+}
+
+.formTitle {
+  margin-bottom: 12px;
+  color: white;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+}
+
+.formTitle:last-child {
+  margin-top: 16px;
+}
+
+.form input {
+  padding: 16px;
+  border-radius: 6px;
+  background: #101010;
+  border: 1px solid #383838;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+  text-align: left;
+}
+
+.form input::placeholder {
+  color: #878787;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+}
+
+.loginButton {
+  margin: 32px 0 16px;
+  width: 100%;
+  border-radius: 6px;
+  background: #f14141;
+  padding: 16px;
+  font-weight: $font-weight-semiBold;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+  border: none;
+  outline: none;
+}
+
+.form input,
+.loginButton,
+.googleBtn {
+  box-sizing: border-box;
+  width: 100%;
+  height: 56px;
+}
+
+.googleBtn {
+  margin-bottom: 32px;
+  padding: 16px;
+  border-radius: 6px;
+  background-color: #242323;
+  font-weight: $font-weight-semiBold;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+  border: none;
+  outline: 1px solid #383838;
+  transition: background 0.15s ease;
+}
+
+.googleBtn:hover {
+  background: #e74c3c;
+}
+
+.registerText {
+  text-align: center;
+  font-weight: $font-size-medium;
+  font-size: 18px;
+  line-height: 26px;
+  margin: $no-margin;
+}
+
+.registerText .registerRoute {
+  color: #f14141;
+  text-decoration: none;
+}
+
+.passwordWrapper {
+  position: relative;
+
+  // Контролируем высоту инпута
+  input {
+    width: 100%;
+    padding: 10px 40px 10px 10px; // Оставляем место для иконки справа
+    height: 40px; // Явно задаём высоту
+    box-sizing: border-box;
+  }
+
+  .passwordToggleBtn {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-23%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: $color-secondary;
+    font-size: $font-size-medium;
+    padding: 0;
+    display: flex;
+    align-items: center; // Убедимся, что контент выровнен по центру
+    justify-content: center;
+    height: 100%; // Делаем высоту кнопки равной инпуту
+  }
+}
+
+@media (max-width: 1240px) {
+  .content {
+    margin: 85px 100px;
+    padding: 60px; /* Уменьшаем отступы для меньших экранов */
+  }
+
+  .title {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+/* Адаптивные стили для брейкпоинта 1024px */
+@media (max-width: 1024px) {
+  .content {
+    margin: 85px 50px;
+    padding: 40px;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .loginButton,
+  .googleBtn,
+  .form input {
+    height: 48px; /* Уменьшаем высоту элементов */
+    line-height: 16px;
+    font-size: 16px;
+  }
+
+  .formTitle {
+    font-size: 14px;
+  }
+}
+
+/* Для экранов шириной до 768px (планшеты) */
+@media (max-width: 768px) {
+  .content {
+    margin: 40px;
+    padding: 40px;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .form input,
+  .loginButton,
+  .googleBtn {
+    height: 48px;
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .registerText {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+/* Для экранов шириной до 480px (мобильные устройства) */
+@media (max-width: 480px) {
+  .content {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .form input,
+  .loginButton,
+  .googleBtn {
+    height: 40px;
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .registerText {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

@@ -1,0 +1,130 @@
+// footer.module.scss
+@import '../variables';
+
+footer {
+  margin-bottom: 20px;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  color: white;
+
+  .logoDescription,
+  .links,
+  .socials {
+    margin-top: 80px;
+  }
+
+  .logoDescription {
+    max-width: 468px;
+
+    h2 {
+      font-size: 32px;
+      font-style: italic;
+      font-weight: 600;
+      margin: 0;
+      line-height: 40px;
+      text-align: left;
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: $color-secondary;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 26px;
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 44px;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 26px;
+        text-align: left;
+        margin-bottom: 12px;
+        cursor: pointer;
+
+        a {
+          text-decoration: none;
+          color: inherit;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: #aa3030;
+          }
+        }
+      }
+
+      li:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .socials {
+    max-width: 200px;
+
+    h4 {
+      margin: 0;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .socialIcons a {
+      display: inline-block;
+      color: white;
+      margin-right: 16px;
+      text-decoration: none;
+    }
+  }
+}
+
+.footerBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-top: 1px solid #333;
+  padding-top: 32px;
+
+  p {
+    margin: 0;
+  }
+
+  .footerLinks {
+    display: flex;
+    gap: 25px;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  a,
+  p {
+    color: $color-secondary;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    text-align: left;
+    margin: 0;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #aa3030;
+    }
+  }
+}

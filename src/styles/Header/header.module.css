@@ -58,6 +58,26 @@
   color: inherit;
 }
 
+/* Стили для элементов .nav ul li button, чтобы они выглядели как ссылки */
+.nav ul li button {
+  font-weight: 500;
+  line-height: 24px;
+  font-size: 18px; /* Размер шрифта как у ссылок */
+  letter-spacing: -1%;
+  text-align: left;
+  background: none; /* Убираем фон кнопки */
+  border: none; /* Убираем границу */
+  cursor: pointer; /* Устанавливаем курсор как у ссылок */
+  color: inherit; /* Устанавливаем цвет текста */
+  transition: color 0.3s ease; /* Плавный переход цвета при наведении */
+  padding: 0; /* Убираем отступы */
+}
+
+.nav ul li button:hover {
+  color: #ff0000; /* Цвет при наведении как у ссылок */
+}
+
+
 /* Анимации для кнопок */
 .buttonContainer {
   display: flex;
@@ -104,6 +124,10 @@
 
 .burgerButton {
   display: none;
+}
+
+.profileIcon {
+  cursor: pointer;
 }
 
 @media (max-width: 1024px) {

@@ -9,7 +9,7 @@ import SearchModal from './Search/SearchModal';
 
 interface HeaderProps {
   heroRef: React.RefObject<HTMLDivElement>;
-  isAuthenticated: boolean; // Добавляем пропс для авторизации
+  isAuthenticated: boolean; // Пропс для авторизации
 }
 
 const Header: React.FC<HeaderProps> = ({ heroRef, isAuthenticated }) => {
@@ -41,6 +41,15 @@ const Header: React.FC<HeaderProps> = ({ heroRef, isAuthenticated }) => {
     setMenuOpen(!isMenuOpen);
   };
 
+  // Проверка аутентификации при клике на ссылку
+  const handleProtectedLinkClick = (path: string) => {
+    if (!isAuthenticated) {
+      navigate('/login');
+    } else {
+      navigate(path);
+    }
+  };
+
   return (
     <header className={s.header}>
       <div className={s.headerLine}>
@@ -56,21 +65,22 @@ const Header: React.FC<HeaderProps> = ({ heroRef, isAuthenticated }) => {
           <nav className={s.nav}>
             <ul>
               <li><NavLink to="/">Home</NavLink></li>
-              <li><NavLink to="/live">Live</NavLink></li>
-              <li><NavLink to="/tv-shows">TV Shows</NavLink></li>
-              <li><NavLink to="/movies">Movies</NavLink></li>
+              <li><button onClick={() => handleProtectedLinkClick('/live')}>Live</button></li>
+              <li><button onClick={() => handleProtectedLinkClick('/tv-shows')}>TV Shows</button></li>
+              <li><button onClick={() => handleProtectedLinkClick('/movies')}>Movies</button></li>
             </ul>
           </nav>
           <div className={s.buttonContainer}>
             <button className={s.searchBtn} onClick={handleOpenSearch}><img src={search} alt="search" /></button>
             <button className={s.subscribeBtn} onClick={handleSubscribeClick}>Subscribe</button>
-            {/* Используем переданный пропс isAuthenticated для проверки авторизации */}
             {isAuthenticated ? (
               <img 
                 src={profileIcon} 
                 alt="Profile" 
                 className={s.profileIcon}
-                onClick={() => navigate('/profile')} 
+                onClick={() => navigate('/profile')}
+                width="56px"
+                height="56px" 
               />
             ) : (
               <button className={s.loginBtn} onClick={() => navigate('/login')}>Sign In</button>

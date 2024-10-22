@@ -1,5 +1,5 @@
 import React from 'react';
-import s from '../styles/App.module.css';
+import s from '../styles/App.module.scss';
 import Intro from './Intro';
 import Movies from './Movies';
 import LatestNews from './LatestNews';

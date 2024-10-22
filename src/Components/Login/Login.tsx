@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import s from "../../styles/Login/login.module.css";
+import s from "../../styles/Login/login.module.scss";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify'; // Импортируем toast
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Импортируем компонент FontAwesome
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'; // Импортируем нужные иконки
 
 interface LoginProps {
   onLogin: () => void;
@@ -10,9 +12,14 @@ interface LoginProps {
 const Login: React.FC<LoginProps> = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isPasswordVisible, setPasswordVisible] = useState(false); // Состояние для видимости пароля
   const [error, setError] = useState('');
 
   const navigate = useNavigate();
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!isPasswordVisible);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,7 +33,9 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
     });
 
     if (response.ok) {
-      toast.success('You successfully logged in on Mostream service. Enjoy your movies!'); // Уведомление об успехе
+      const data = await response.json();
+      localStorage.setItem('token', data.token); // Сохраняем токен в localStorage
+      toast.success('You successfully logged in on Mostream service. Enjoy your movies!');
       onLogin();
       setTimeout(() => {
         navigate('/');
@@ -34,7 +43,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
     } else {
       const errorData = await response.json();
       setError(errorData.message);
-      toast.error(errorData.message); // Уведомление об ошибке
+      toast.error(errorData.message);
       console.error('Login failed:', errorData.message);
     }
   };
@@ -42,21 +51,44 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
   return (
     <section className={s.login}>
       <div className={s.content}>
-        <h1>Access the Cinematic Realm with Elegance</h1>
-        <p>A Refined Entrance: Secure Your Journey into a World of Timeless Film Excellence</p>
+        <h1 className={s.title}>Access the Cinematic Realm with Elegance</h1>
+        <h4 className={s.subtitle}>A Refined Entrance: Secure Your Journey into a World of Timeless Film Excellence</h4>
         <form className={s.form} onSubmit={handleSubmit}>
           <label>
-            Email*
-            <input type="email" placeholder="example@mostream.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
+            <h3 className={s.formTitle}>
+              Email*
+            </h3>
+            <input 
+              type="email" 
+              placeholder="example@mostream.com" 
+              required 
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
+            />
           </label>
-          <label>
-            Password*
-            <input type="password" placeholder="Input password" required value={password} onChange={(e) => setPassword(e.target.value)} />
+          <label className={s.passwordWrapper}>
+            <h3 className={s.formTitle}>
+              Password*
+            </h3>
+            <input 
+              type={isPasswordVisible ? 'text' : 'password'} // Переключение между текстом и паролем
+              placeholder="Input password" 
+              required 
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
+            />
+            <button 
+              type="button" 
+              className={s.passwordToggleBtn} 
+              onClick={togglePasswordVisibility}
+            >
+              <FontAwesomeIcon icon={isPasswordVisible ? faEyeSlash : faEye} /> {/* Иконка для показа/скрытия пароля */}
+            </button>
           </label>
-          <button type="submit">Sign In</button>
+          <button className={s.loginButton} type="submit">Sign In</button>
         </form>
         <button className={s.googleBtn}>Sign In with Google</button>
-        <p>Don’t have an account? <NavLink to="/register">Register</NavLink></p>
+        <p className={s.registerText}>Don’t have an account? <NavLink to="/register" className={s.registerRoute}>Register</NavLink></p>
         {error && <p className={s.error}>{error}</p>}
       </div>
     </section>

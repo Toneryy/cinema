@@ -8,8 +8,7 @@ import Trailer from './Trailer';
 import Hero from '../Hero';
 import { useLocation } from 'react-router-dom';
 import { scrollToSection } from '../../Logic/navigateActions'; // Импортируем логику прокрутки
-
-import s from "../../styles/App.module.css"
+import s from "../../styles/App.module.scss";
 
 interface Movie {
   id: number;
@@ -21,40 +20,58 @@ interface Movie {
 
 interface Article1Props {
   moviesData: Movie[];
+  isAuthenticated: boolean; // Добавляем пропс для аутентификации
 }
 
-const Article1: React.FC<Article1Props> = ({ moviesData }) => {
-  const [Title, setTitle] = useState<string>(moviesData[5].title); // Начальное состояние для заголовка
-  const [isTrailerVisible, setTrailerVisible] = useState<boolean>(false); // Состояние для видимости трейлера
-  const trailerRef = useRef<HTMLDivElement | null>(null); // Реф для трейлера
+const Article1: React.FC<Article1Props> = ({ moviesData, isAuthenticated }) => {
+  const [Title, setTitle] = useState<string>(moviesData[5].title);
+  const [isTrailerVisible, setTrailerVisible] = useState<boolean>(false);
+  const trailerRef = useRef<HTMLDivElement | null>(null);
   const location = useLocation();
 
-  // Эффект для автоматической прокрутки к трейлеру, если в URL есть query-параметр `trailer=true`
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     if (searchParams.get('trailer') === 'true') {
-      scrollToSection(trailerRef); // Прокрутка при загрузке
-      setTrailerVisible(true); // Устанавливаем трейлер как видимый
+      scrollToSection(trailerRef);
+      setTrailerVisible(true);
     }
   }, [location.search]);
 
   const handleSelectMovie = (movieTitle: string) => {
-    setTitle(movieTitle); // Устанавливаем заголовок выбранного фильма
-    setTrailerVisible(true); // Делаем трейлер видимым
-    scrollToSection(trailerRef); // Прокручиваем к трейлеру
+    setTitle(movieTitle);
+    setTrailerVisible(true);
+    scrollToSection(trailerRef);
+  };
+
+  const handleWatchTrailer = () => {
+    setTrailerVisible(true);
+    scrollToSection(trailerRef);
+  };
+
+  const handleAddToWatchList = () => {
+    if (isAuthenticated) {
+      // Здесь добавьте логику для добавления в "Watch List"
+      console.log("Добавлено в список просмотра!"); // Замените на вашу логику
+    } else {
+      console.log("Пользователь не аутентифицирован."); // Замените на вашу логику
+    }
   };
 
   return (
     <main className={s.main}>
-      <ArticleIntro Title={Title} />
+      <ArticleIntro
+        Title={Title}
+        isAuthenticated={isAuthenticated} 
+        onWatchTrailer={handleWatchTrailer} // Передаем функцию
+        onAddToWatchList={handleAddToWatchList} // Передаем функцию
+      />
       <Description />
       <ArticleMovies onSelectMovie={handleSelectMovie} moviesData={moviesData} />
-      {/* Секция с трейлером */}
       <div ref={trailerRef}>
         <Trailer 
           videoSrc="https://www.youtube.com/watch?v=sZqOrsMLh80" 
           Title={Title} 
-          isVisible={isTrailerVisible} // Передаем состояние видимости
+          isVisible={isTrailerVisible} 
         />      
       </div>
       <Hero />

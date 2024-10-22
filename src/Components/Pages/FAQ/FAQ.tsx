@@ -3,7 +3,7 @@ import React from "react";
 import Hero from "../../Hero";
 
 import s from '../../../styles/Pages/FAQ/FAQ.module.css'
-import styles from '../../../styles/App.module.css'
+import styles from '../../../styles/App.module.scss'
 
 import playIcon from "../../../data/Pages/FAQ/playIcon.png"
 import bookIcon from "../../../data/Pages/FAQ/bookIcon.png"

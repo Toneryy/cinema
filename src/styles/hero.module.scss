@@ -1,0 +1,163 @@
+// hero.module.scss
+@import 'variables';
+
+.heroSection {
+  width: 100%;
+  background-image: url('../data/mainPage/bg.png');
+  background-size: cover;
+  background-position: center;
+  padding: $padding-large 0;
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+
+  @media (max-width: 768px) {
+    margin-top: -40px;
+    background-attachment: unset;
+    height: auto;
+  }
+
+  @media (max-width: 480px) {
+    padding: $padding-large 0;
+  }
+}
+
+.heroTitle {
+  margin: auto;
+  max-width: 900px;
+  color: $color-light;
+  font-size: $font-size-large;
+  font-weight: 600;
+  line-height: 56px;
+  text-align: center;
+  margin-bottom: $margin-large;
+
+  @media (max-width: 1240px) {
+    font-size: 42px;
+    line-height: 50px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    line-height: 44px;
+    margin-bottom: 18px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 12px;
+  }
+}
+
+.heroSubtitle {
+  margin: auto;
+  max-width: 900px;
+  color: $color-secondary;
+  font-size: $font-size-medium;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: center;
+  margin-bottom: $margin-large;
+
+  @media (max-width: 1240px) {
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 28px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 16px;
+  }
+}
+
+.subscribeForm {
+  display: flex;
+  justify-content: center;
+
+  .emailInput {
+    padding: $padding-medium;
+    font-size: $font-size-small;
+    width: 300px;
+    border-radius: $border-radius;
+    border: 1px solid #ccc;
+    outline: none;
+
+    @media (max-width: 1240px) {
+      width: 280px;
+      font-size: 15px;
+    }
+
+    @media (max-width: 1024px) {
+      width: 260px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      width: 240px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 480px) {
+      width: 50%;
+      font-size: 12px;
+    }
+  }
+
+  .subscribeButton {
+    padding: $padding-medium 24px;
+    background-color: $color-primary;
+    color: $color-light;
+    font-size: $font-size-small;
+    border: none;
+    cursor: pointer;
+    margin-left: 8px;
+    border-radius: $border-radius;
+
+    &:hover {
+      background-color: darken($color-primary, 5%);
+    }
+
+    @media (max-width: 1240px) {
+      font-size: 15px;
+      padding: 10px 22px;
+    }
+
+    @media (max-width: 1024px) {
+      font-size: 14px;
+      padding: 8px 20px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 13px;
+      padding: 8px 18px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: clamp(0.625rem, 0.45rem + 1vi, 0.75rem);
+      padding: 6px 10px;
+      width: 25%;
+    }
+  }
+}
