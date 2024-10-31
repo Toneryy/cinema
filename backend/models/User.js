@@ -5,11 +5,15 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true, // Уникальность поляя для электронной почты
+        unique: true,
     },
     password: {
         type: String,
         required: true,
+    },
+    watchlist: {
+        type: [Number], // Храним массив идентификаторов фильмов
+        default: [],
     },
 });
 

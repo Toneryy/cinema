@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import s from "../../styles/Login/login.module.scss";
+import s from "../../styles/Login/login.module.scss"; // Импортируем стили
 import { NavLink, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify'; // Импортируем toast
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Импортируем компонент FontAwesome
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'; // Импортируем нужные иконки
+import { toast } from 'react-toastify'; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 interface LoginProps {
-  onLogin: () => void;
+  onLogin: (token: string) => void; // Обновлено для передачи токена
 }
 
 const Login: React.FC<LoginProps> = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isPasswordVisible, setPasswordVisible] = useState(false); // Состояние для видимости пароля
+  const [isPasswordVisible, setPasswordVisible] = useState(false);
   const [error, setError] = useState('');
 
   const navigate = useNavigate();
@@ -34,17 +34,17 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
 
     if (response.ok) {
       const data = await response.json();
-      localStorage.setItem('token', data.token); // Сохраняем токен в localStorage
-      toast.success('You successfully logged in on Mostream service. Enjoy your movies!');
-      onLogin();
+      localStorage.setItem('token', data.token); // Сохранение токена в локальном хранилище
+      toast.success('Вы успешно вошли в систему на сервисе Mostream. Приятного просмотра фильмов!');
+      onLogin(data.token); // Передаем токен родительскому компоненту
       setTimeout(() => {
-        navigate('/');
+        navigate('/'); // Переход на главную страницу
       }, 2000);
     } else {
       const errorData = await response.json();
       setError(errorData.message);
       toast.error(errorData.message);
-      console.error('Login failed:', errorData.message);
+      console.error('Не удалось войти:', errorData.message);
     }
   };
 
@@ -71,7 +71,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
               Password*
             </h3>
             <input 
-              type={isPasswordVisible ? 'text' : 'password'} // Переключение между текстом и паролем
+              type={isPasswordVisible ? 'text' : 'password'}
               placeholder="Input password" 
               required 
               value={password} 
@@ -82,7 +82,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
               className={s.passwordToggleBtn} 
               onClick={togglePasswordVisibility}
             >
-              <FontAwesomeIcon icon={isPasswordVisible ? faEyeSlash : faEye} /> {/* Иконка для показа/скрытия пароля */}
+              <FontAwesomeIcon icon={isPasswordVisible ? faEyeSlash : faEye} />
             </button>
           </label>
           <button className={s.loginButton} type="submit">Sign In</button>

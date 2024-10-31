@@ -1,0 +1,156 @@
+// profile.module.scss
+@import "../../variables";
+
+.profile {
+  margin-top: $margin-large;
+  color: $color-light;
+
+  .profileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $margin-medium;
+    font-size: $font-size-medium;
+
+    @media (max-width: 1240px) {
+      font-size: $font-size-medium; // Настройка размера шрифта
+    }
+
+    @media (max-width: 1024px) {
+      flex-direction: column; // Переход к вертикальному расположению на 1024px
+      align-items: flex-start; // Выравнивание по левому краю
+    }
+
+    @media (max-width: 768px) {
+      align-items: center; // Центрируем элементы на 768px
+    }
+
+    @media (max-width: 480px) {
+      font-size: $font-size-small;
+    }
+  }
+
+  .welcome {
+    font-weight: $font-weight-semiBold;
+  }
+
+  .logoutButton {
+    padding: $padding-medium;
+    background-color: $color-primary;
+    color: $color-light;
+    border: none;
+    border-radius: $border-radius;
+    font-weight: $font-weight-medium;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($color-primary, 10%);
+    }
+
+    @media (max-width: 1024px) {
+      margin-top: $margin-small; // Добавляем отступ сверху
+    }
+
+    @media (max-width: 768px) {
+      width: 100%; // Кнопка занимает всю ширину на маленьких экранах
+    }
+  }
+
+  .watchlistHeader {
+    font-size: $font-size-large;
+    margin-bottom: $margin-medium;
+
+    @media (max-width: 768px) {
+      font-size: $font-size-medium; // Уменьшаем размер шрифта на 768px
+    }
+  }
+
+  .watchlist {
+    list-style: none;
+    padding: 0;
+
+    .watchlistItem {
+      color: $color-dark;
+      font-size: $font-size-medium;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: $padding-small $padding-medium;
+      background-color: $color-light;
+      margin-bottom: $margin-small;
+      border-radius: $border-radius;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap; // Позволяем элементам переноситься
+
+      @media (max-width: 1240px) {
+        padding: $padding-small; // Уменьшаем отступы на 1240px
+      }
+
+      @media (max-width: 1024px) {
+        flex-direction: column; // Вертикальное расположение на 1024px
+        align-items: flex-start; // Выравнивание по левому краю
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column; // Вертикальное расположение на 768px
+        align-items: flex-start; // Выравнивание по левому краю
+      }
+
+      .removeButton {
+        background-color: $color-secondary;
+        color: $color-light;
+        border: none;
+        border-radius: $border-radius;
+        padding: $padding-small;
+        cursor: pointer;
+        font-size: $font-size-small;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: darken($color-secondary, 10%);
+        }
+      }
+    }
+  }
+
+  .emptyMessage {
+    font-size: $font-size-medium;
+    color: $color-secondary;
+    text-align: center; // Центрируем сообщение
+  }
+}
+
+// Медиа-запросы для разных разрешений
+@media (max-width: 1240px) {
+  .profileHeader {
+    margin-bottom: $margin-small; // Уменьшаем отступ для заголовка на 1240px
+  }
+}
+
+@media (max-width: 1024px) {
+  .profileHeader {
+    margin-bottom: $margin-small; // Уменьшаем отступ для заголовка на 1024px
+  }
+}
+
+@media (max-width: 768px) {
+  .watchlistHeader {
+    font-size: $font-size-small; // Дополнительное уменьшение размера заголовка на 768px
+  }
+
+  .emptyMessage {
+    font-size: $font-size-small; // Дополнительное уменьшение размера сообщения на 768px
+  }
+}
+
+@media (max-width: 480px) {
+  .watchlistHeader {
+    font-size: $font-size-small; // Дополнительное уменьшение размера заголовка на 480px
+  }
+
+  .emptyMessage {
+    font-size: $font-size-small; // Дополнительное уменьшение размера сообщения на 480px
+  }
+}
