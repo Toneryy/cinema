@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
             <li><NavLink to="/" className={s.link}>Home</NavLink></li>
             <li><NavLink to="/movies" className={s.link}>Movies</NavLink></li>
             <li><NavLink to="/tv-shows" className={s.link}>TV Shows</NavLink></li>
-            <li><NavLink to="/reedem" className={s.link}>Reedem</NavLink></li>
+            <li><NavLink to="/subscription" className={s.link}>Subscription</NavLink></li>
           </ul>
 
           <ul>

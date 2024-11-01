@@ -1,0 +1,77 @@
+@import "../../variables";
+
+.watchlistHeader {
+  font-size: $font-size-large;
+  color: $color-light;
+  margin-bottom: $margin-medium;
+  text-align: center;
+  border-bottom: 2px solid lighten($color-primary, 20%);
+  padding-bottom: $padding-small;
+}
+
+.watchlist {
+  list-style: none;
+  padding: 0;
+
+  .watchlistItem {
+    color: darken($color-dark, 15%); // Спокойный цвет текста
+    font-size: $font-size-medium;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $padding-small $padding-medium;
+    background-color: lighten($color-light, 10%);
+    margin-bottom: $margin-small;
+    border-radius: $border-radius;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.2s ease;
+
+    &:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    }
+
+    .removeButton {
+      background-color: darken($color-primary, 10%);
+      color: $color-light;
+      border: none;
+      border-radius: $border-radius;
+      padding: $padding-small;
+      cursor: pointer;
+      font-size: $font-size-small;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: lighten($color-primary, 20%);
+      }
+    }
+  }
+
+  .emptyMessage {
+    font-size: $font-size-medium;
+    color: darken($color-secondary, 20%);
+    text-align: center;
+    padding: $padding-medium;
+    border: 1px dashed darken($color-secondary, 10%);
+    border-radius: $border-radius;
+  }
+}
+
+// Адаптивные стили
+@media (max-width: 768px) {
+  .watchlistItem {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: $padding-small;
+
+    .removeButton {
+      margin-top: $margin-small;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .watchlistHeader {
+    font-size: $font-size-medium;
+  }
+}

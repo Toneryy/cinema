@@ -1,77 +1,62 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import s from '../styles/movies.module.css';
 import { navigateToTrailer, navigateToArticle } from '../Logic/navigateActions';
+import { RootState } from '../Redux/store';
 
-import Image1 from '../data/mainPage/moviesImg/Image1.png';
-import Image2 from '../data/mainPage/moviesImg/Image2.png';
-import Image3 from '../data/mainPage/moviesImg/Image3.png';
-import Image4 from '../data/mainPage/moviesImg/Image4.png';
-import Image5 from '../data/mainPage/moviesImg/Image5.png';
+interface Movie {
+    id: number;
+    title: string;
+    genre: string;
+    description: string;
+    image: string;
+}
 
 const Movies: React.FC = () => {
-  const navigate = useNavigate(); // Хук для навигации
+    const navigate = useNavigate();
+    
+    // Получаем данные фильмов из Redux
+    const moviesData = useSelector((state: RootState) => state.movies.movies);
+    const moviesImages = useSelector((state: RootState) => state.movies.moviesImages);
 
-  return (
-    <section className={s.movieSection}>
-      <h2 className={s.title}>
-        Explore Our Wide Range of Movie Categories and Genres
-      </h2>
-      <div className={s.movieContainer}>
-        {/* Большие элементы */}
-        <div className={s.movieContainerLarge}>
-          <div className={s.movieItemLarge}>
-            <img src={Image1} alt="Spectral Riveierie" className={s.movieImageLarge} />
-            <h3>Spectral Riveierie</h3>
-            <p>A gifted artist discovers the ability to bring her dreams to life through her paintings...</p>
-            <div className={s.buttonContainer}>
-              <button className={s.trailerButton} onClick={() => navigateToTrailer(navigate)}>Watch Trailer</button>
-              <button className={s.moreInfoButton} onClick={() => navigateToArticle(navigate)}>More Info</button>
+    return (
+        <section className={s.movieSection}>
+            <h2 className={s.title}>
+                Explore Our Wide Range of Movie Categories and Genres
+            </h2>
+            <div className={s.movieContainer}>
+                {/* Большие элементы */}
+                <div className={s.movieContainerLarge}>
+                    {moviesData.slice(0, 2).map((movie: Movie, index: number) => (
+                        <div key={movie.id} className={s.movieItemLarge}>
+                            <img src={moviesImages[index]} alt={movie.title} className={s.movieImageLarge} />
+                            <h3>{movie.title}</h3>
+                            <p>{movie.description}</p>
+                            <div className={s.buttonContainer}>
+                                <button className={s.trailerButton} onClick={() => navigateToTrailer(navigate)}>Watch Trailer</button>
+                                <button className={s.moreInfoButton} onClick={() => navigateToArticle(navigate)}>More Info</button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                {/* Маленькие элементы */}
+                <div className={s.movieContainerSmall}>
+                    {moviesData.slice(2, 5).map((movie: Movie, index: number) => ( // Обратите внимание на slice(2, 6)
+                        <div key={movie.id} className={s.movieItemSmall}>
+                            <img src={moviesImages[index + 2]} alt={movie.title} className={s.movieImageSmall} />
+                            <h3>{movie.title}</h3>
+                            <p>{movie.description}</p>
+                            <div className={s.buttonContainer}>
+                                <button className={s.trailerButton} onClick={() => navigateToTrailer(navigate)}>Watch Trailer</button>
+                                <button className={s.moreInfoButton} onClick={() => navigateToArticle(navigate)}>More Info</button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
-          </div>
-          <div className={s.movieItemLarge}>
-            <img src={Image2} alt="Quantum Mirage" className={s.movieImageLarge} />
-            <h3>Quantum Mirage</h3>
-            <p>A brilliant physicist stumbles upon a groundbreaking discovery that challenges reality...</p>
-            <div className={s.buttonContainer}>
-              <button className={s.trailerButton} onClick={() => navigateToTrailer(navigate)}>Watch Trailer</button>
-              <button className={s.moreInfoButton} onClick={() => navigateToArticle(navigate)}>More Info</button>
-            </div>
-          </div>
-        </div>
-        {/* Маленькие элементы */}
-        <div className={s.movieContainerSmall}>
-          <div className={s.movieItemSmall}>
-            <img src={Image3} alt="Ephemeraal Echoes" className={s.movieImageSmall} />
-            <h3>Ephemeraal Echoes</h3>
-            <p>In a world where memories are fleeting and time is delicate, a group of individuals struggles...</p>
-            <div className={s.buttonContainer}>
-              <button className={s.trailerButton} onClick={() => navigateToTrailer(navigate)}>Watch Trailer</button>
-              <button className={s.moreInfoButton} onClick={() => navigateToArticle(navigate)}>More Info</button>
-            </div>
-          </div>
-          <div className={s.movieItemSmall}>
-            <img src={Image4} alt="Celestial Cipier" className={s.movieImageSmall} />
-            <h3>Celestial Cipier</h3>
-            <p>In a realm where constellations hold the secrets of the universe, a group of unlikely heroes...</p>
-            <div className={s.buttonContainer}>
-              <button className={s.trailerButton} onClick={() => navigateToTrailer(navigate)}>Watch Trailer</button>
-              <button className={s.moreInfoButton} onClick={() => navigateToArticle(navigate)}>More Info</button>
-            </div>
-          </div>
-          <div className={s.movieItemSmall}>
-            <img src={Image5} alt="Solaris Synchrony" className={s.movieImageSmall} />
-            <h3>Solaris Synchrony</h3>
-            <p>Against the backdrop of a dying Earth, a group of scientists races to execute one last experiment...</p>
-            <div className={s.buttonContainer}>
-              <button className={s.trailerButton} onClick={() => navigateToTrailer(navigate)}>Watch Trailer</button>
-              <button className={s.moreInfoButton} onClick={() => navigateToArticle(navigate)}>More Info</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 };
 
 export default Movies;

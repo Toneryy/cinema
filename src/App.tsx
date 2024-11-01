@@ -2,6 +2,8 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useSelector } from "react-redux"; // Импортируем useSelector
+import { RootState } from "./Redux/store"; // Импортируйте RootState
 import ProtectedRoute from "./Components/Login/Protection";
 import Header from "./Components/Header";
 import Main from "./Components/Main";
@@ -15,32 +17,19 @@ import PrivacyPolicy from "./Components/Pages/Terms and Privacy/PrivacyPolicy";
 import ScrollToTop from "./Logic/scrollToTop";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Login/Register";
-import Profile from "./Components/Pages/Profile/Profile"; // Импортируем компонент Profile
+import Profile from "./Components/Pages/Profile/Profile";
+
+import Subscription from "./Components/Pages/Subscription/Subscription";
+
 import s from "./styles/App.module.scss";
 
-interface Article {
-  title: string;
-  text: string;
-  image: string;
-  link: string;
-}
-
-interface Movie {
-  id: number;
-  title: string;
-  genre: string;
-  description: string;
-  image: string;
-}
-
-interface AppProps {
-  articles: Article[];
-  moviesData: Movie[];
-}
-
-const App: React.FC<AppProps> = ({ articles, moviesData }) => {
+const App: React.FC = () => {
   const heroRef = useRef<HTMLDivElement | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  // Получаем статьи и данные о фильмах из Redux
+  const articles = useSelector((state: RootState) => state.articles.articles);
+  const moviesData = useSelector((state: RootState) => state.movies.movies);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -121,6 +110,7 @@ const App: React.FC<AppProps> = ({ articles, moviesData }) => {
                     />
                   }
                 />
+                <Route path="/subscription" element={<Subscription />} />
                 <Route
                   path="/terms"
                   element={

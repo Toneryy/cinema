@@ -1,5 +1,4 @@
 // ArticleMovies.tsx
-
 import React, { useState } from 'react';
 import MovieCard from './MovieCard';
 import styles from '../../styles/Articles/Article.module.css';

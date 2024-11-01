@@ -1,35 +1,33 @@
-// Article2.tsx
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../Redux/store"; 
+import { Movie } from "../../Redux/types";
+import { addToWatchList } from "../../Redux/slices/watchListSlice"; 
 
-import React from 'react';
-
-interface Movie {
-  id: number;
-  title: string;
-  genre: string;
-  description: string;
-  image: string;
-}
-
-interface Article2Props {
+interface ArticleProps {
   moviesData: Movie[];
-  isAuthenticated: boolean; // Добавляем пропс для аутентификации
+  isAuthenticated: boolean;
 }
 
-const Article2: React.FC<Article2Props> = ({ moviesData, isAuthenticated }) => {
-  const handleAddToWatchList = () => {
+const Article2: React.FC<ArticleProps> = ({ moviesData, isAuthenticated }) => {
+  const dispatch = useDispatch();
+
+  const handleAddToWatchList = (movieId: number) => {
     if (isAuthenticated) {
-      // Логика добавления в "Watch List"
-      console.log("Добавлено в список просмотра!");
+      dispatch(addToWatchList(movieId)); 
     } else {
-      console.log("Пользователь не аутентифицирован.");
+      alert("Пожалуйста, войдите в систему, чтобы добавить фильмы в свой список просмотра.");
     }
   };
 
   return (
     <div>
-      <h1>Article 2</h1>
-      {/* Здесь вы можете добавить контент статьи и кнопку "Watch List" */}
-      <button onClick={handleAddToWatchList}>Add to Watch List</button>
+      {moviesData.map((movie) => (
+        <div key={movie.id}>
+          <h2>{movie.title}</h2>
+          <button onClick={() => handleAddToWatchList(movie.id)}>Добавить в список просмотра</button>
+        </div>
+      ))}
     </div>
   );
 };

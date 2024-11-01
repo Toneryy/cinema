@@ -1,0 +1,190 @@
+@import "../../variables";
+
+.planSection {
+  margin-top: 120px;
+}
+
+.title {
+  font-size: $font-size-large;
+  font-weight: $font-weight-semiBold;
+  text-align: center;
+  line-height: 56px;
+
+  // Уменьшение размера шрифта на планшетах и мобильных устройствах
+  @media (max-width: 1024px) {
+    font-size: 32px;
+    line-height: 48px;
+  }
+  @media (max-width: 768px) {
+    font-size: 28px;
+    line-height: 42px;
+  }
+  @media (max-width: 480px) {
+    font-size: 24px;
+    line-height: 36px;
+  }
+}
+
+.subTitle {
+  color: $color-dark;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: $font-weight-medium;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  @media (max-width: 480px) {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+.container {
+  margin: 56px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0; // По умолчанию без отступа
+
+  // Переход на 2 колонки с отступом 20px при ширине до 1240px
+  @media (max-width: 1240px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  // Переход на 1 колонку с отступом 20px и центровка карточек на мобильных
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-items: center; // Центровка карточек по горизонтали
+  }
+
+  .cardItem {
+    display: flex;
+    flex-direction: column;
+    border-radius: $border-radius;
+    width: 392px;
+    height: 604px;
+    background: #242323;
+    padding: 24px;
+    box-sizing: border-box;
+    transition: box-shadow 0.1s ease;
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(173, 173, 173, 0.2);
+    }
+
+    @media (max-width: 1240px) {
+      width: 100%;
+    }
+    
+    @media (max-width: 768px) {
+      height: auto;
+    }
+
+    .content {
+      flex-grow: 1; // Заставляет основной контент занимать всё доступное пространство
+    }
+  }
+}
+
+.price {
+  margin-top: $margin-large;
+  display: flex;
+  align-items: baseline;
+
+  @media (max-width: 768px) {
+    margin-top: $margin-medium;
+    font-size: $font-size-medium;
+    line-height: 32px;
+  }
+
+  .amount {
+    font-size: $font-size-large;
+    font-weight: $font-weight-semiBold;
+    line-height: 48px;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 36px;
+      line-height: 40px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 28px;
+      line-height: 34px;
+    }
+  }
+
+  .duration {
+    line-height: 24px;
+    font-size: $font-size-small;
+    font-weight: $font-weight-medium;
+    margin-left: 2%;
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+}
+
+.advantages {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .advantage {
+    font-size: 18px;
+    font-weight: $font-weight-medium;
+    line-height: 26px;
+    text-align: left;
+
+    @media (max-width: 1024px) {
+      font-size: $font-size-small;
+      line-height: 24px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+}
+
+.getStarted {
+  margin-top: 32px; // Максимальный отступ сверху, чтобы кнопка прижалась к низу
+  width: 100%;
+  color: $color-light;
+  font-weight: $font-weight-semiBold;
+  font-size: $font-size-small;
+  line-height: 24px;
+  padding: 16px;
+  background: $bg-red;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: $border-radius;
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: $background-color-red-hover;
+  }
+
+  @media (max-width: 1240px) {
+    margin-top: auto;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: $margin-large;
+    font-size: 14px;
+    padding: 14px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+    padding: 12px;
+  }
+}

@@ -1,0 +1,49 @@
+@import "../../variables";
+
+.profileHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $margin-medium;
+  font-size: $font-size-medium;
+
+  .welcome {
+    font-weight: $font-weight-semiBold;
+  }
+
+  .logoutButton {
+    padding: $padding-medium;
+    background-color: $color-primary;
+    color: $color-light;
+    border: none;
+    border-radius: $border-radius;
+    font-weight: $font-weight-medium;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($color-primary, 10%);
+    }
+  }
+}
+
+// Адаптивные стили
+@media (max-width: 768px) {
+  .profileHeader {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .logoutButton {
+      margin-top: $margin-medium;
+      width: 50%; // Кнопка на всю ширину
+      padding: $padding-small; // Уменьшаем паддинг
+      font-size: $font-size-small; // Уменьшаем размер шрифта
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .profileHeader {
+    font-size: $font-size-small; // Уменьшаем размер шрифта
+  }
+}

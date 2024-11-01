@@ -7,27 +7,27 @@ import FAQ from './FAQ';
 import Hero from './Hero';
 
 interface Article {
-  title: string;
-  text: string;
-  image: string;
-  link: string;
+    title: string;
+    text: string;
+    image: string;
+    link: string;
 }
 
 interface MainProps {
-  heroRef: React.RefObject<HTMLElement>; // Изменяем тип на HTMLElement
-  articles: Article[];
+    heroRef: React.RefObject<HTMLElement>;
+    articles: Article[];
 }
 
 const Main: React.FC<MainProps> = ({ heroRef, articles }) => {
-  return (
-    <main className={s.main}>
-      <Intro articles={articles} />
-      <Movies />
-      <LatestNews />
-      <FAQ />
-      <Hero ref={heroRef} /> {/* Убедитесь, что Hero принимает реф */}
-    </main>
-  );
+    return (
+        <main className={s.main}>
+            <Intro articles={articles} />
+            <Movies />
+            <LatestNews />
+            <FAQ />
+            <Hero ref={heroRef} />
+        </main>
+    );
 };
 
 export default Main;
