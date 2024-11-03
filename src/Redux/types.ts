@@ -3,8 +3,8 @@ export interface Article {
     id: number;
     title: string;
     text: string; // Required property
-    image: string; // Required property
-    link: string; // Required property
+    image: string;
+    link: string;
   }
   
   export interface Movie {
@@ -12,6 +12,6 @@ export interface Article {
     title: string;
     genre: string;
     description: string;
-    image: string; // Required property
+    image: string;
   }
   

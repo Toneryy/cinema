@@ -27,7 +27,7 @@ export interface WatchListState {
 
 export type RootState = {
     articles: ArticlesState;
-    movies: MoviesState; // Убедитесь, что movies включает moviesImages
+    movies: MoviesState;
     auth: AuthState;
     watchList: WatchListState;
 };

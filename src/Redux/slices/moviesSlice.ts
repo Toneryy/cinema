@@ -12,11 +12,11 @@ interface Movie {
 
 interface MoviesState {
   movies: Movie[];
-  moviesImages: string[]; // Добавляем массив для изображений фильмов
+  moviesImages: string[];
 }
 
 const initialState: MoviesState = {
-  movies: state.moviesData, // Используем данные из state.ts
+  movies: state.moviesData, // Lанные из state.ts
   moviesImages: state.moviesImages, // Теперь это будет работать
 };
 

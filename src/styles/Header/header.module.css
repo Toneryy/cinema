@@ -159,6 +159,7 @@
     flex-direction: column;
     justify-content: flex-start; /* Выравнивание по верхнему краю */
     padding-top: 40px; /* Отступ сверху для .nav */
+    overflow: hidden;
   }
 
   /* Когда меню открыто */
@@ -196,6 +197,7 @@
 
   .buttonContainer button {
     width: 90%;
+    padding: 0;
   }
 
   .searchBtn {

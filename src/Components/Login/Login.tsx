@@ -35,7 +35,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
     if (response.ok) {
       const data = await response.json();
       localStorage.setItem('token', data.token); // Сохранение токена в локальном хранилище
-      toast.success('Вы успешно вошли в систему на сервисе Mostream. Приятного просмотра фильмов!');
+      toast.success('You have successfully logged in to the Mostream service. Enjoy watching movies!');
       onLogin(data.token); // Передаем токен родительскому компоненту
       setTimeout(() => {
         navigate('/'); // Переход на главную страницу

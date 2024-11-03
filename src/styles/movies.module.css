@@ -144,7 +144,7 @@
         grid-template-columns: 1fr;
     }
 
-    .movieItem {
+    .movieItemSmall {
         flex-basis: 100%; /* Одна колонка на мобильных */
     }
 }
@@ -160,6 +160,22 @@
         padding: 8px 16px;
         font-size: 12px;
     }
+
+    .trailerButton {
+        width: 50%;
+    }
+
+    .moreInfoButton {
+        width: 40%;
+    }
+
+    .movieImageLarge, .movieImageSmall {
+        width: 100%;
+    }
+
+    .movieItemLarge, .movieItemSmall {
+        width: auto;
+    }
 }
 
 /* Добавляем адаптивность для нижних блоков */
@@ -167,21 +183,4 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-}
-
-.movieItem {
-    flex-basis: calc(33.33% - 20px); /* Используем flex вместо фиксированной ширины */
-    margin-bottom: 20px; /* Отступы между блоками */
-}
-
-@media (max-width: 1240px) {
-    .movieItem {
-        flex-basis: calc(50% - 20px); /* Переход на 2 колонки на меньших экранах */
-    }
-}
-
-@media (max-width: 768px) {
-    .movieItem {
-        flex-basis: 100%; /* Одна колонка на мобильных */
-    }
 }

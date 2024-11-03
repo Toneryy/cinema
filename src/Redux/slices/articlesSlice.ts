@@ -1,6 +1,6 @@
-// articlesSlice.ts
+// articlesSlice.ts редьюмер
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import state from '../state'; // Импортируем начальные данные
+import state from '../state';
 
 interface Article {
     title: string;
@@ -14,7 +14,7 @@ interface ArticlesState {
 }
 
 const initialState: ArticlesState = {
-    articles: state.articles, // Используем данные из state.ts
+    articles: state.articles, // Ланные из state.ts
 };
 
 const articlesSlice = createSlice({
@@ -22,10 +22,10 @@ const articlesSlice = createSlice({
     initialState,
     reducers: {
         setArticles: (state, action: PayloadAction<Article[]>) => {
-            state.articles = action.payload; // обновляем состояние
+            state.articles = action.payload; // обновление состояния
         },
         addArticle: (state, action: PayloadAction<Article>) => {
-            state.articles.push(action.payload); // добавляем новую статью
+            state.articles.push(action.payload); // добавление новой статьи
         },
         removeArticle: (state, action: PayloadAction<string>) => {
             state.articles = state.articles.filter(article => article.link !== action.payload); // удаляем статью по ссылке

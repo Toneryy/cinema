@@ -13,10 +13,7 @@ interface IntroProps {
 const ArticleIntro: React.FC<IntroProps> = ({ Title, movieId, isAuthenticated, onWatchTrailer }) => { // Используем isAuthenticated
     const navigate = useNavigate();
 
-    console.log("isAuthenticated:", isAuthenticated); // Логирование состояния аутентификации
-
     const handleWatchListClick = async () => {
-        console.log("Кнопка Watch List нажата");
 
         if (!isAuthenticated) {
             console.log("Пользователь не аутентифицирован, редирект на /login");
@@ -25,7 +22,6 @@ const ArticleIntro: React.FC<IntroProps> = ({ Title, movieId, isAuthenticated, o
         }
 
         const token = localStorage.getItem('token');
-        console.log("Token перед отправкой запроса:", token);
         
         if (!token) {
             console.error("Токен отсутствует");
@@ -43,8 +39,6 @@ const ArticleIntro: React.FC<IntroProps> = ({ Title, movieId, isAuthenticated, o
                 },
                 body: JSON.stringify({ movieId }),
             });
-
-            console.log("Response status:", response.status); // Логируем статус ответа
             
             if (response.ok) {
                 toast.success('Фильм добавлен в Watch List!', {
