@@ -1,0 +1,111 @@
+@import "../../variables";
+
+.purchaseContainer {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: $color-light;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    .title {
+      font-size: $font-size-large;
+      color: $color-primary;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: $color-dark;
+    }
+  }
+
+  .packageDetails {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: $color-primary;
+    border-radius: $border-radius;
+
+    .packageTitle {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: $color-light;
+    }
+
+    .packageDescription {
+      font-size: 1rem;
+      color: $color-light;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: $bg-red;
+      margin-top: 0.5rem;
+    }
+  }
+
+  .paymentSection {
+    margin-bottom: 2rem;
+
+    .paymentTitle {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: $color-dark;
+    }
+
+    .paymentButton {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: $color-light;
+      border: none;
+      border-radius: $border-radius;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &.paypal {
+        background-color: #0070ba;
+
+        &:hover {
+          background-color: darken(#0070ba, 10%);
+        }
+      }
+
+      &.creditCard {
+        background-color: #333;
+
+        &:hover {
+          background-color: darken(#333, 10%);
+        }
+      }
+    }
+  }
+
+  .footer {
+    text-align: center;
+
+    .confirmButton {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      color: $color-light;
+      background-color: $bg-red;
+      border: none;
+      border-radius: $border-radius;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: darken($bg-red, 10%);
+      }
+    }
+  }
+}

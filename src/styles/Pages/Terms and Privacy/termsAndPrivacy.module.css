@@ -5,34 +5,34 @@
     color: #878787;
 }
   
-.container h1 {
+.container .title {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: #fff;
 }
   
-.container h2 {
+.container .subtitle {
     font-size: 1.8rem;
     margin-top: 20px;
     color: #fff;
 }
   
-.container p {
+.container .description {
     font-size: 1rem;
     line-height: 1.5;
     margin-bottom: 10px;
 }
   
 @media (max-width: 600px) {
-    .container h1 {
+    .container .title {
       font-size: 2rem;
     }
   
-    .container h2 {
+    .container .subtitle {
       font-size: 1.5rem;
     }
   
-    .container p {
+    .container .description {
       font-size: 0.9rem;
     }
 }

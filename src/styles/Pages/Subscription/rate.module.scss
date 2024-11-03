@@ -1,0 +1,151 @@
+@import "../../variables";
+
+.intro {
+  margin-top: 80px;
+}
+
+.title {
+  font-weight: $font-weight-semiBold;
+  font-size: $font-size-large;
+  line-height: 56px;
+  text-align: center;
+  margin: 0;
+  @media (max-width: 768px) {
+    line-height: 40px;
+    font-size: 36px;
+  }
+}
+
+.subtitle {
+  max-width: 624px;
+  margin: 32px auto 0;
+  font-weight: $font-size-medium;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+  color: $color-secondary;
+
+  @media (max-width: 768px) {
+    margin-top: 24px;
+    line-height: 18px;
+    font-size: 14px;
+  }
+}
+
+.buttonContainer {
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  .selectPackage,
+  .showDetail {
+    box-sizing: border-box;
+    color: $color-light;
+    border-radius: $border-radius;
+    font-weight: $font-weight-semiBold;
+    font-size: $font-size-small;
+    line-height: 24px;
+    padding: 16px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    @media (max-width: 768px) {
+        line-height: 20px;
+        font-size: 14px;
+    }
+  }
+
+  .selectPackage {
+    background: $bg-red;
+    width: 163px;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+  }
+
+  .showDetail {
+    background: $color-dark;
+    width: 205px;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+  }
+}
+
+.rateContainer {
+  margin-top: 56px;
+  display: grid;
+  gap: 56px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 32px;
+  }
+
+  .rateItem {
+    box-sizing: border-box;
+    width: 592px;
+    border: 1px $color-secondary solid;
+    border-radius: $border-radius;
+    padding: 24px;
+    cursor: pointer;
+    outline: none;
+    
+    &.selected {
+        border-color: $color-primary;
+      }
+
+    @media (max-width: 1240px) {
+        width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+
+    .itemTitle {
+      margin-top: 0;
+      font-weight: $font-weight-semiBold;
+      font-size: $font-size-medium;
+      line-height: 32px;
+      text-align: left;
+    }
+
+    .price {
+      margin-top: $margin-large;
+      display: flex;
+      align-items: baseline;
+      margin: 0;
+
+      .amount {
+        font-size: $font-size-large;
+        font-weight: $font-weight-semiBold;
+        line-height: 48px;
+        margin: 0;
+      }
+
+      .duration {
+        line-height: 24px;
+        font-size: $font-size-small;
+        font-weight: $font-weight-medium;
+        margin: 0;
+        margin-left: 2%;
+      }
+    }
+
+    .description {
+      margin: 0;
+      margin-top: 12px;
+      color: $color-secondary;
+      font-size: 18px;
+      font-weight: $font-size-medium;
+      line-height: 26px;
+      text-align: left;
+    }
+  }
+}

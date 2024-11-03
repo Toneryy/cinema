@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className={s.socials}>
-          <h4>Stay up to date</h4>
+          <h4 className={s.socialTitle}>Stay up to date</h4>
           <div className={s.socialIcons}>
             <a href="https://facebook.com" target="_blank" rel="noreferrer">Facebook</a>
             <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>

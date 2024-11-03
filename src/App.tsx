@@ -22,6 +22,10 @@ import Profile from "./Components/Pages/Profile/Profile";
 import Subscription from "./Components/Pages/Subscription/Subscription";
 
 import s from "./styles/App.module.scss";
+import Basic from "./Components/Pages/Subscription/Rates/Basic";
+import Premium from "./Components/Pages/Subscription/Rates/Premium";
+import Ultimate from "./Components/Pages/Subscription/Rates/Ultimate";
+import Purchase from "./Components/Pages/Subscription/Purchase";
 
 const App: React.FC = () => {
   const heroRef = useRef<HTMLDivElement | null>(null);
@@ -51,11 +55,6 @@ const App: React.FC = () => {
     <Router>
       <ScrollToTop />
       <Routes>
-        <Route path="/login" element={<Login onLogin={handleLogin} />} />
-        <Route
-          path="/register"
-          element={<Register onRegister={handleRegister} />}
-        />
         <Route
           path="*"
           element={
@@ -66,6 +65,19 @@ const App: React.FC = () => {
                   path="/"
                   element={<Main heroRef={heroRef} articles={articles} />}
                 />
+                <Route
+                  path="/login"
+                  element={<Login onLogin={handleLogin} />}
+                />
+                <Route
+                  path="/register"
+                  element={<Register onRegister={handleRegister} />}
+                />
+                <Route path="/subscription" element={<Subscription />} />
+                <Route path="/subscription/basic" element={<Basic />} />
+                <Route path="/subscription/premium" element={<Premium />} />
+                <Route path="/subscription/ultimate" element={<Ultimate />} />
+                <Route path="/subscription/purchase" element={<Purchase />} />
                 <Route
                   path="/faq"
                   element={
@@ -110,7 +122,6 @@ const App: React.FC = () => {
                     />
                   }
                 />
-                <Route path="/subscription" element={<Subscription />} />
                 <Route
                   path="/terms"
                   element={

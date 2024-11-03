@@ -175,7 +175,7 @@
 }
   
 @media (max-width: 480px) {
-    .description h1 {
+    .description .title {
       font-size: 18px;
     }
   
