@@ -4,36 +4,41 @@ import m from "../../../../styles/App.module.scss";
 import FAQ from "../../../FAQ";
 import Hero from "../../../Hero";
 import { useNavigate } from "react-router-dom";
-import { navigateToLink } from "../../../../Logic/navigateActions";
 import PopupDetails from "../PopapDetails";
 
+type PackageDetail = {
+  title: string;
+  price: string;
+  duration: string;
+  description: string;
+};
+
 const Basic: React.FC = () => {
-  const [selectedRate, setSelectedRate] = useState<number | null>(null); // Отслеживание выбранного тарифа
-  const [showPopup, setShowPopup] = useState(false); // Состояние для отображения попапа
+  const [selectedRate, setSelectedRate] = useState<number | null>(null);
+  const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
-  const handleRateSelect = (index: number) => {
-    setSelectedRate(index);
-  };
-
-  const handlePackageSelect = () => {
-    navigateToLink(navigate, '/subscription/purchase');
-  };
-
-  const handleShowDetails = () => {
-    setShowPopup(true); // Открываем попап
-  };
-
-  const handleClosePopup = () => {
-    setShowPopup(false); // Закрываем попап
-  };
-
-  const packageDetails = selectedRate !== null ? [
+  const packages: PackageDetail[] = [
     { title: "30 Day - All Device", price: "$8.99", duration: "/month", description: "For PayPal payment promo: Receive a 10% cashback." },
     { title: "1 Year - All Device", price: "$76.99", duration: "/year", description: "For PayPal payment promo: Receive a 10% cashback." },
     { title: "30 Day - Only for Phone & Tablet", price: "$5.99", duration: "/month", description: "For PayPal payment promo: Receive a 10% cashback." },
     { title: "1 Year - Only for Phone & Tablet", price: "$48.99", duration: "/year", description: "For PayPal payment promo: Receive a 10% cashback." }
-  ][selectedRate] : null;
+  ];
+
+  const packageDetails = selectedRate !== null ? packages[selectedRate] : null;
+
+  const handleRateSelect = (index: number) => setSelectedRate(index);
+
+  const handlePackageSelect = () => {
+    if (packageDetails) {
+      navigate('/subscription/purchase', {
+        state: { packageDetails, packageType: "Basic" },
+      });
+    }
+  };
+
+  const handleShowDetails = () => setShowPopup(true);
+  const handleClosePopup = () => setShowPopup(false);
 
   return (
     <main className={m.main}>
@@ -49,12 +54,7 @@ const Basic: React.FC = () => {
         </div>
       </section>
       <section className={s.rateContainer}>
-        {[
-          { title: "30 Day - All Device", price: "$8.99", duration: "/month" },
-          { title: "1 Year - All Device", price: "$76.99", duration: "/year" },
-          { title: "30 Day - Only for Phone & Tablet", price: "$5.99", duration: "/month" },
-          { title: "1 Year - Only for Phone & Tablet", price: "$48.99", duration: "/year" }
-        ].map((rate, index) => (
+        {packages.map((rate, index) => (
           <div
             key={index}
             className={`${s.rateItem} ${selectedRate === index ? s.selected : ""}`}
@@ -66,9 +66,7 @@ const Basic: React.FC = () => {
                 <h2 className={s.amount}>{rate.price}</h2>
                 <h4 className={s.duration}>{rate.duration}</h4>
               </div>
-              <p className={s.description}>
-                For PayPal payment promo: Receive a 10% cashback.
-              </p>
+              <p className={s.description}>For PayPal payment promo: Receive a 10% cashback.</p>
             </div>
           </div>
         ))}
@@ -76,10 +74,7 @@ const Basic: React.FC = () => {
       <FAQ />
       <Hero />
       {showPopup && packageDetails && (
-        <PopupDetails
-          onClose={handleClosePopup}
-          packageDetails={packageDetails}
-        />
+        <PopupDetails onClose={handleClosePopup} packageDetails={packageDetails} />
       )}
     </main>
   );

@@ -96,8 +96,9 @@
     cursor: pointer;
     outline: none;
     
-    &.selected {
-        border-color: $color-primary;
+    &.selected, &:hover {
+      border-color: $color-primary;
+      box-shadow: 0 4px 12px rgba(192, 191, 191, 0.2);
       }
 
     @media (max-width: 1240px) {
